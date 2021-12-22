@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'xu'
+group = 'xu.all'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -13,34 +13,32 @@ repositories {
     mavenLocal()
 //    找不到再从阿里仓库找
     maven {
-        allowInsecureProtocol = true
         url "http://maven.aliyun.com/nexus/content/groups/public/"
     }
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"
     implementation "org.springframework.boot:spring-boot-starter-data-jdbc"
-    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation "org.springframework.data:spring-data-redis"
     implementation "redis.clients:jedis"
-    compileOnly 'org.projectlombok:lombok'
-    implementation 'mysql:mysql-connector-java:5.1.47'
-    annotationProcessor 'org.projectlombok:lombok'
 
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'mysql:mysql-connector-java:5.1.47'
+    implementation 'com.alibaba:druid-spring-boot-starter:1.1.22'
     implementation 'com.alibaba:easyexcel:2.2.10'
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.12.12'
     implementation "ma.glasnost.orika:orika-core:1.5.2"
-    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     implementation group: 'joda-time', name: 'joda-time', version: '2.10.1'
     implementation 'com.alibaba:easyexcel:2.2.10'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'io.rest-assured:rest-assured:4.4.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
-    implementation 'com.alibaba:druid-spring-boot-starter:1.1.22'
     implementation 'org.yaml:snakeyaml:1.29'
     implementation('org.apache.zookeeper:zookeeper:3.4.13') {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'

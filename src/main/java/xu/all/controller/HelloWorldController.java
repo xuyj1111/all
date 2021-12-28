@@ -1,4 +1,4 @@
-package xu.all;
+package xu.all.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

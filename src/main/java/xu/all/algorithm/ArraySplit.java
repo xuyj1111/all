@@ -6,6 +6,11 @@ import java.util.Arrays;
 
 /**
  * @Description: 将数组规定一个拆分大小，按顺序从小到大获取子数组
+ * arr.size = 20, len = 5
+ * 第一次：0-5
+ * 第二次：5-10
+ * 第三次：10-15
+ * 第四次：15-20
  * @Author: xuyujun
  * @Date: 2021/12/6
  */

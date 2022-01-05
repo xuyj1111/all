@@ -1,4 +1,4 @@
-package xu.all.javaBase.multithreading;
+package xu.all.javaSE.multithreading;
 
 import org.springframework.core.task.TaskDecorator;
 

@@ -1,6 +1,6 @@
 package xu.all.frw.hamcrest;
 
-import xu.all.frw.orika.pojo.UserDTO;
+import com.google.common.collect.Maps;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,10 +17,11 @@ import static org.hamcrest.Matchers.*;
  */
 public class HamcrestDemo {
 
-    private UserDTO userDTO1 = new UserDTO(1, "张三", 20);
-    private UserDTO userDTO2 = new UserDTO(1, "张三", 20);
-    private UserDTO userDTO3 = new UserDTO(3, "李四", 30);
-    private UserDTO userDTO4 = userDTO1;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
 
     /**
      * @Description: Core
@@ -30,12 +31,12 @@ public class HamcrestDemo {
      */
     @Test
     public void hamcrestCore() {
-
+        String s1 = "balabala";
+        String s2 = "bilibili";
         //anything任意都对
-        assertThat(userDTO1, anything("反正写什么都是对的"));
+        assertThat(s1, anything("反正写什么都是对的"));
         //describedAs错误文本
-        assertThat(userDTO1, describedAs("失败了，毁灭吧，累了", is(userDTO2)));
-
+        assertThat(s1, describedAs("失败了，毁灭吧，累了", is(s2)));
     }
 
     /**
@@ -46,12 +47,11 @@ public class HamcrestDemo {
      */
     @Test
     public void hamcrestLogical() {
-
+        String s1 = "张三";
         //类似&&
-        assertThat(userDTO1.getName(), allOf(is("张三"), not("李四")));
+        assertThat(s1, allOf(is("张三"), not("李四")));
         //类似||
-        assertThat(userDTO1.getName(), anyOf(is("张三"), is("李四")));
-
+        assertThat(s1, anyOf(is("张三"), is("李四")));
     }
 
     /**
@@ -64,18 +64,20 @@ public class HamcrestDemo {
      */
     @Test
     public void hamcrestObject() {
-
-        assertThat(userDTO1, equalTo(userDTO2));
+        HashMap<Object, Object> map1 = Maps.newHashMap();
+        HashMap<Object, Object> map2 = Maps.newHashMap();
+        HashMap<Object, Object> map3 = null;
+        assertThat(map1, equalTo(map2));
         //判断toString字符串
-        assertThat(userDTO1, hasToString("UserDTO(id=1, name=张三, age=20, address=null, nameParts=null, namePartsMap=null, car=null)"));
+        assertThat(map1, hasToString("{}"));
         //是否哪个类
-        assertThat(userDTO1, instanceOf(UserDTO.class));
+        assertThat(map1, instanceOf(HashMap.class));
         //不是null
-        assertThat(userDTO1, notNullValue());
+        assertThat(map1, notNullValue());
         //是null
-        assertThat(userDTO1.getAddress(), nullValue());
+        assertThat(map3, nullValue());
         //判断是否为同一个对象
-        assertThat(userDTO1, sameInstance(userDTO4));
+        assertThat(map1, sameInstance(map1));
 
     }
 
@@ -85,10 +87,8 @@ public class HamcrestDemo {
      */
     @Test
     public void hamcrestBeans() {
-
         //是否有指定属性
-        assertThat(userDTO1, hasProperty("name"));
-
+        assertThat(new HamcrestDemo(), hasProperty("name"));
     }
 
     /**
@@ -100,7 +100,6 @@ public class HamcrestDemo {
      */
     @Test
     public void hamcrestCollections() {
-
         //匹配数组（有顺序）
         assertThat(new Integer[]{1, 2, 3}, is(array(equalTo(1), equalTo(2), equalTo(3))));
         //匹配map实体，键或者值
@@ -117,7 +116,6 @@ public class HamcrestDemo {
         assertThat(list, hasItems("str01", "str02"));
         //数组是否有指定值
         assertThat(new String[]{"foo", "bar"}, hasItemInArray("foo"));
-
     }
 
     /**
@@ -127,8 +125,17 @@ public class HamcrestDemo {
      */
     @Test
     public void hamcrestNumber() {
-//        https:
-//blog.csdn.net/fanxiaobin577328725/article/details/78407192
+        double d = 3.3d;
+        // closeTo：浮点型变量的值在3.0±0.5范围内，测试通过
+        assertThat(d, closeTo(3.0, 0.5));
+        // greaterThan：变量的值大于指定值时，测试通过
+        assertThat(d, greaterThan(3.0));
+        // lessThan：变量的值小于指定值时，测试通过
+        assertThat(d, lessThan(3.5));
+        // greaterThanOrEuqalTo：变量的值大于等于指定值时，测试通过
+        assertThat(d, greaterThanOrEqualTo(3.3));
+        // lessThanOrEqualTo：变量的值小于等于指定值时，测试通过
+        assertThat(d, lessThanOrEqualTo(3.4));
     }
 
     /**
@@ -139,6 +146,18 @@ public class HamcrestDemo {
      */
     @Test
     public void hamcrestText() {
-
+        String n = "Magci";
+        // containsString：字符串变量中包含指定字符串时，测试通过
+        assertThat(n, containsString("ci"));
+        // startsWith：字符串变量以指定字符串开头时，测试通过
+        assertThat(n, startsWith("Ma"));
+        // endsWith：字符串变量以指定字符串结尾时，测试通过
+        assertThat(n, endsWith("i"));
+        // euqalTo：字符串变量等于指定字符串时，测试通过
+        assertThat(n, equalTo("Magci"));
+        // equalToIgnoringCase：字符串变量在忽略大小写的情况下等于指定字符串时，测试通过
+        assertThat(n, equalToIgnoringCase("magci"));
+        // equalToIgnoringWhiteSpace：字符串变量在忽略头尾任意空格的情况下等于指定字符串时，测试通过
+        assertThat(n, equalToIgnoringWhiteSpace(" Magci   "));
     }
 }

@@ -1,3 +1,6 @@
+##### Awaitility
+简介：异步操作校验工具  
+doc：https://github.com/awaitility/awaitility/wiki/Usage  
 ##### Curator
 简介：Zookeeper客户端  
 doc：https://curator.apache.org/getting-started.html  
@@ -47,6 +50,8 @@ doc：http://www.quartz-scheduler.org/documentation/quartz-2.3.0/
 ##### RestAssured
 简介：HTTP接口测试  
 doc：https://github.com/xuyj1111/demo/tree/master/src/main/resources/doc  
+类介绍：
+* RestAssuredDemo：测试类
 ##### utils
 简介：常用工具类  
 类介绍：  

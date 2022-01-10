@@ -1,4 +1,4 @@
-package xu.all.javaSE.multithreading;
+package xu.all.javaSE.multithread;
 
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 

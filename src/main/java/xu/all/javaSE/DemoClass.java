@@ -2,7 +2,7 @@ package xu.all.javaSE;
 
 import org.junit.jupiter.api.Test;
 
-public class DemoTest {
+public class DemoClass {
 
     /**
      * @Description: byte数组和string相互转换

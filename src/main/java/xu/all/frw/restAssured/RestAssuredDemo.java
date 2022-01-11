@@ -9,6 +9,8 @@ import xu.all.dto.PeopleDTO;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 /**
  * @Description: 参考API：https://github.com/xuyj1111/demo/tree/master/src/main/resources/doc/rest-assured用户手册中文版.md
@@ -36,7 +38,7 @@ public class RestAssuredDemo {
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .extract().response();
-        System.out.println(response.asString());
+        assertThat(response.asString(), is("k1:v1"));
     }
 
     /**
@@ -51,7 +53,7 @@ public class RestAssuredDemo {
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .extract().response();
-        System.out.println(response.asString());
+        assertThat(response.asString(), is("id: 111"));
     }
 
     /**
@@ -77,7 +79,7 @@ public class RestAssuredDemo {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             PeopleDTO peopleDTO = objectMapper.readValue(response.asString(), PeopleDTO.class);
-            System.out.println(peopleDTO);
+            assertThat(peopleDTO.getAge(), is(25));
         } catch (IOException e) {
             e.printStackTrace();
         }

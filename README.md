@@ -36,7 +36,7 @@ doc：https://square.github.io/okhttp/
 代码路径：https://github.com/xuyj1111/all/tree/master/src/main/java/xu/all/frw/okHttp
 ##### OpenCSV
 简介：csv处理工具包  
-doc：http://opencsv.sourceforge.net/apidocs/  
+doc：http://opencsv.sourceforge.net/#skipping_filtering_and_verifying  
 代码路径：https://github.com/xuyj1111/all/tree/master/src/main/java/xu/all/frw/opencsv
 ##### Orika
 简介：JavaBean映射工具包  

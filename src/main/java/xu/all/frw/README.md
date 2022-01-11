@@ -42,7 +42,7 @@ doc：https://square.github.io/okhttp/
 * OkHttpController：Controller类
 ##### OpenCsv
 简介：csv处理工具包  
-doc：http://opencsv.sourceforge.net/apidocs/  
+doc：http://opencsv.sourceforge.net/#skipping_filtering_and_verifying  
 类介绍：
 * OpenCsvDemo：测试类
 ##### Orika

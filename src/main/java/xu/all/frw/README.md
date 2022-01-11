@@ -17,15 +17,23 @@ doc：https://alibaba-easyexcel.github.io/index.html
 ##### Guava
 简介：Google的Java工具包  
 doc：https://github.com/google/guava/wiki  
+类介绍：
+* GuavaDemo：测试类
 ##### Hamcrest
 简介：matcher匹配器断言  
 doc：http://hamcrest.org/JavaHamcrest/?utm_source=testingpai.com  
+类介绍：
+* HamcrestDemo：测试类
 ##### Jackson
 简介：json库  
 doc：https://www.javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/latest/index.html  
+类介绍：
+* JacksonDemo：测试类
 ##### Mockito
 简介：Java测试框架  
 doc：https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html  
+类介绍：
+* MockitoDemo：测试类
 ##### OkHttp
 简介：HTTP客户端  
 doc：https://square.github.io/okhttp/  
@@ -40,6 +48,8 @@ doc：http://opencsv.sourceforge.net/apidocs/
 ##### Orika
 简介：JavaBean映射工具包  
 doc：http://orika-mapper.github.io/orika-docs/index.html  
+类介绍：
+* OrikaDemo：测试类
 ##### Quartz
 简介：定时任务框架  
 doc：http://www.quartz-scheduler.org/documentation/quartz-2.3.0/  
@@ -60,7 +70,7 @@ doc：https://github.com/xuyj1111/demo/tree/master/src/main/resources/doc
 简介：压缩工具包  
 doc：https://github.com/srikanth-lingala/zip4j  
 类介绍：
-* 
+* Zip4jDemo：测试类
 ##### Zookeeper
 简介：Zookeeper  
 doc：https://zookeeper.apache.org/doc/current/index.html  

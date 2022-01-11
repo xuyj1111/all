@@ -12,6 +12,14 @@ import java.util.Map;
 
 public class GuavaDemo {
 
+    /**
+     * @Description: Joiner.on(String separator)
+     * .join(Iterable<?> parts)：传入集合或数组，返回以指定分隔符将集合或数组内值组合成一个字符串
+     * .skipNulls()：跳过集合或数组中的null值
+     * .useForNull(String nullText)：将集合或数组中的null值替换成指定字符串
+     * .appendTo(StringBuilder builder, Iterable<?> parts)：将builder的字符串与parts join后的字符串组合
+     * .withKeyValueSeparator(String keyValueSeparator)：设置KV的连接符，返回MapJoiner，即之后再调用join则可传入Map类型对象
+     */
     @Test
     public void JoinerDemo() {
         List<String> list1 = Arrays.asList("aa", "bb", "cc");
@@ -27,6 +35,16 @@ public class GuavaDemo {
         System.out.println(Joiner.on("-").withKeyValueSeparator("=").join(map));
     }
 
+    /**
+     * @Description: Splitter.on(String separator)、Splitter.fixedLength(int length)
+     * Splitter.on：规定分隔符
+     * Splitter.fixedLength：规定分割长度
+     * —————
+     * .split(CharSequence sequence)：分割字符串
+     * .trimResults()：删除字符串头尾空格
+     * .omitEmptyStrings()：忽略空字符串，空格不忽略
+     * .withKeyValueSeparator(String separator)：规定KV的连接符，返回MapSplitter，之后再调用split则会返回map对象
+     */
     @Test
     public void SplitterDemo() {
         String s1 = " ,b,c,,";
@@ -42,6 +60,16 @@ public class GuavaDemo {
         System.out.println(Splitter.on(",").withKeyValueSeparator("=").split(s3));
     }
 
+    /**
+     * @Description: Strings
+     * .nullToEmpty(String string)：若入参为null，则返回空字符串
+     * .emptyToNull(String string)：若入参为空字符串，则返回null
+     * .isNullOrEmpty(String string)：若入参为null或者空字符串，返回true，否false
+     * .padStart(String string, int minLength, char padChar)：规定字符串的最小长度，若小于最小长度，开头补上指定字符
+     * .padEnd(String string, int minLength, char padChar)：规定字符串的最小长度，若小于最小长度，结尾补上指定字符
+     * .commonPrefix(CharSequence a, CharSequence b)：返回两个字符串相同的开头字符串，若无返回空字符串
+     * .commonSuffix(CharSequence a, CharSequence b)：返回两个字符串相同的结尾字符串，若无返回空字符串
+     */
     @Test
     public void StringsDemo() {
         String s1 = null;

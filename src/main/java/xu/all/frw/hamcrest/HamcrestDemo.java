@@ -2,6 +2,7 @@ package xu.all.frw.hamcrest;
 
 import com.google.common.collect.Maps;
 import org.junit.jupiter.api.Test;
+import xu.all.dto.PeopleDTO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,12 +17,6 @@ import static org.hamcrest.Matchers.*;
  * @Date: 2021/7/30
  */
 public class HamcrestDemo {
-
-    private String name;
-
-    public String getName() {
-        return name;
-    }
 
     /**
      * @Description: Core
@@ -78,7 +73,6 @@ public class HamcrestDemo {
         assertThat(map3, nullValue());
         //判断是否为同一个对象
         assertThat(map1, sameInstance(map1));
-
     }
 
     /**
@@ -88,7 +82,7 @@ public class HamcrestDemo {
     @Test
     public void hamcrestBeans() {
         //是否有指定属性
-        assertThat(new HamcrestDemo(), hasProperty("name"));
+        assertThat(new PeopleDTO(), hasProperty("name"));
     }
 
     /**

@@ -10,7 +10,7 @@ import java.util.concurrent.FutureTask;
  * @Author: xuyujun
  * @Date: 2021/11/11
  */
-public class DemoClass {
+public class MultithreadDemo {
 
     @Test
     public void testMyThread() {

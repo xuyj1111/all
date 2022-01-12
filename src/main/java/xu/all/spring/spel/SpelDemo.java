@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 * @Author: xuyujun
 * @Date: 2021/12/6 
 */ 
-public class Demo {
+public class SpelDemo {
 
     private static final ExpressionParser parser = new SpelExpressionParser();
 

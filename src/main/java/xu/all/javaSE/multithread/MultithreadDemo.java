@@ -113,6 +113,39 @@ public class MultithreadDemo {
     }
 
     /**
+     * @Description: Semaphore
+     * 比作控制流量的红绿灯，一条马路上只允许100辆车，前100看到的是绿灯，超过100的看到的是红灯，前100通过一个，后面就可以补进一个
+     * ————
+     * new Semaphore(2)：入参表示许可数目，允许多少线程进行访问
+     * new Semaphore(2, true)：与上相比，多个一个布尔入参，表示是否公平，对等待时间越长的线程越先获得许可
+     * .acquire()：获取一个许可
+     * .acquire(num)：获取多个许可
+     * .release()：释放一个许可
+     * .release(num)：释放多个许可
+     */
+    @Test
+    public void testSemaphore() throws InterruptedException {
+        Semaphore semaphore = new Semaphore(2);
+        Runnable runnable = () -> {
+            try {
+                semaphore.acquire();
+                System.out.println(Thread.currentThread().getName() + "：占用中...");
+                Thread.sleep(2000);
+                System.out.println(Thread.currentThread().getName() + "：释放");
+                semaphore.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+        Executor threadPool = createThreadPool();
+        for (int i = 0; i < 3; i++) {
+            threadPool.execute(runnable);
+        }
+        Thread.sleep(5000l);
+        System.out.println("主线程等了五秒");
+    }
+
+    /**
      * @Description: 创建线程池
      */
     private Executor createThreadPool() {

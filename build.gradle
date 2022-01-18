@@ -55,6 +55,7 @@ dependencies {
     implementation 'cglib:cglib:3.3.0'
     implementation 'org.awaitility:awaitility:4.0.3'
     implementation('xu.tools:tools-io:0.0.1-SNAPSHOT') { changing = true }
+    implementation('xu.tools:tools-json:0.0.1-SNAPSHOT') { changing = true }
 }
 
 test {

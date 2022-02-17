@@ -1,6 +1,7 @@
 package xu.all.frw.awaitility;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import xu.all.dto.PeopleBuilderDTO;
 
@@ -9,7 +10,7 @@ import static org.awaitility.Awaitility.await;
 import static org.awaitility.Awaitility.fieldIn;
 import static org.hamcrest.Matchers.greaterThan;
 
-
+@Slf4j
 public class AwaitilityDemo {
 
     private PeopleBuilderDTO peopleDTO = PeopleBuilderDTO.builder().age(20).build();
@@ -32,7 +33,7 @@ public class AwaitilityDemo {
                 try {
                     Thread.sleep(1000l);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.error("系统异常", e);
                 }
                 peopleDTO.setAge(peopleDTO.getAge() + 1);
             }
@@ -60,7 +61,7 @@ public class AwaitilityDemo {
                 try {
                     Thread.sleep(1000l);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.error("系统异常", e);
                 }
                 peopleDTO.setAge(peopleDTO.getAge() + 1);
             }

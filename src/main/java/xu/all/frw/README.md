@@ -13,7 +13,14 @@ doc：https://alibaba-easyexcel.github.io/index.html
 类介绍：
 * EasyExcelWrite：所有excel写功能测试类
 * EasyExcelRead：所有excel读功能测试类
-* EasyExcelUtil：EasyExcel内部功能类测试
+* EasyExcelUtil：EasyExcel内部功能类测试  
+##### ElasticSearch
+简介：全文搜索引擎  
+doc：https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html  
+Java REST Client doc：https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html  
+类介绍：  
+* EsRepository：es持久层类  
+* EsRepositoryImpl：es持久层实现类  
 ##### Guava
 简介：Google的Java工具包  
 doc：https://github.com/google/guava/wiki  

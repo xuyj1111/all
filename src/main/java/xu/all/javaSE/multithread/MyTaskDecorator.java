@@ -1,5 +1,6 @@
 package xu.all.javaSE.multithread;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.task.TaskDecorator;
 
 /**
@@ -7,6 +8,7 @@ import org.springframework.core.task.TaskDecorator;
 * @Author: xuyujun
 * @Date: 2021/11/13
 */
+@Slf4j
 public class MyTaskDecorator implements TaskDecorator {
 
     @Override
@@ -15,7 +17,7 @@ public class MyTaskDecorator implements TaskDecorator {
             try {
                 runnable.run();
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
                 System.out.println("error! error!");
             }
         };

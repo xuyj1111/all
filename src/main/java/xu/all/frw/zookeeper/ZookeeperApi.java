@@ -1,5 +1,6 @@
 package xu.all.frw.zookeeper;
 
+import lombok.extern.slf4j.Slf4j;
 import xu.all.frw.quartz.WatcherApi;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
+@Slf4j
 @Component
 public class ZookeeperApi {
 
@@ -142,7 +144,7 @@ public class ZookeeperApi {
             byte[] bytes = zkClient.getData(path, watcher, stat);
             return new String(bytes);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
             return null;
         }
     }

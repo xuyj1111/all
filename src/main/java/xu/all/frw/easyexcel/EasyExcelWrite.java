@@ -10,6 +10,7 @@ import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.metadata.style.WriteFont;
 import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
+import lombok.extern.slf4j.Slf4j;
 import xu.all.frw.easyexcel.interceptor.CommentWriteHandler;
 import xu.all.frw.easyexcel.interceptor.CustomCellWriteHandler;
 import xu.all.frw.easyexcel.interceptor.CustomSheetWriteHandler;
@@ -38,6 +39,7 @@ import java.util.List;
  * @Author: xuyujun
  * @Date: 2021/7/6
  */
+@Slf4j
 public class EasyExcelWrite {
     //根据自己路径修改
     final String filePath = "C:\\Users\\edz\\Desktop\\";
@@ -72,7 +74,7 @@ public class EasyExcelWrite {
             WriteSheet writeSheet = EasyExcel.writerSheet("模板").build();
             excelWriter.write(buildData(), writeSheet);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         } finally {
             if (excelWriter != null) {
                 excelWriter.finish();
@@ -175,16 +177,16 @@ public class EasyExcelWrite {
             imageData.setUrl(new URL("https://raw.githubusercontent.com/alibaba/easyexcel/master/src/test/resources/converter/img.jpg"));
             EasyExcel.write(fileName, ImageData.class).sheet().doWrite(list);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         } finally {
             try {
                 if (inputStream != null) {
                     inputStream.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
         }
     }

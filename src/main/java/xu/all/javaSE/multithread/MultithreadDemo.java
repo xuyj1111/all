@@ -1,5 +1,6 @@
 package xu.all.javaSE.multithread;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -10,6 +11,7 @@ import java.util.concurrent.*;
  * @Author: xuyujun
  * @Date: 2021/11/11
  */
+@Slf4j
 public class MultithreadDemo {
 
     @Test
@@ -36,9 +38,9 @@ public class MultithreadDemo {
         try {
             System.out.println(futureTask.get());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
     }
 
@@ -62,7 +64,7 @@ public class MultithreadDemo {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             System.out.println(Thread.currentThread().getName() + ": end");
             //计数器减1
@@ -73,7 +75,7 @@ public class MultithreadDemo {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             System.out.println(Thread.currentThread().getName() + ": end");
             //计数器减1
@@ -103,7 +105,7 @@ public class MultithreadDemo {
                 Thread.sleep(1000);
                 cb.await();
             } catch (InterruptedException | BrokenBarrierException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             System.out.println(Thread.currentThread().getName() + ": end");
         });
@@ -134,7 +136,7 @@ public class MultithreadDemo {
                 System.out.println(Thread.currentThread().getName() + "：释放");
                 semaphore.release();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
         };
         Executor threadPool = createThreadPool();

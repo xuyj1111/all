@@ -2,6 +2,7 @@ package xu.all.frw.restAssured;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import xu.all.dto.PeopleDTO;
@@ -17,6 +18,7 @@ import static org.hamcrest.Matchers.is;
  * @Author: xuyujun
  * @Date: 2021/7/30
  */
+@Slf4j
 public class RestAssuredDemo {
 
     /**
@@ -81,7 +83,7 @@ public class RestAssuredDemo {
             PeopleDTO peopleDTO = objectMapper.readValue(response.asString(), PeopleDTO.class);
             assertThat(peopleDTO.getAge(), is(25));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
 
     }

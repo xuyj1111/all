@@ -1,5 +1,6 @@
 package xu.all.javaSE.jdk8.option;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import xu.all.javaSE.jdk8.stream.DemoDTO;
 
@@ -12,6 +13,7 @@ import java.util.function.Supplier;
  * @Author: xuyujun
  * @Date: 2022/1/10
  */
+@Slf4j
 public class OptionDemo {
 
     /**
@@ -69,7 +71,7 @@ public class OptionDemo {
         try {
             System.out.println(Optional.empty().orElseThrow(s2));
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
     }
 

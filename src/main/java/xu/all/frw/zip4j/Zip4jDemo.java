@@ -1,5 +1,6 @@
 package xu.all.frw.zip4j;
 
+import lombok.extern.slf4j.Slf4j;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 import net.lingala.zip4j.model.ZipParameters;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@Slf4j
 public class Zip4jDemo {
 
     private static final String PATH = "src/main/java/xu/all/frw/zip4j/";
@@ -52,7 +54,7 @@ public class Zip4jDemo {
             }
             zipFile.extractAll(PATH);
         } catch (ZipException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
     }
 
@@ -78,7 +80,7 @@ public class Zip4jDemo {
             FileTool.createAndWriteFile(DIR_PATH + "testFile01.txt", "hello你好1");
             FileTool.createAndWriteFile(DIR_PATH + "testFile02.txt", "hello你好2");
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
     }
 }

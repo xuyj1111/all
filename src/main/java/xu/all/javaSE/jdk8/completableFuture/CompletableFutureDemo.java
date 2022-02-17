@@ -1,11 +1,13 @@
 package xu.all.javaSE.jdk8.completableFuture;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 
+@Slf4j
 public class CompletableFutureDemo {
 
     /**
@@ -18,7 +20,7 @@ public class CompletableFutureDemo {
             try {
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             return 1111;
         });
@@ -28,9 +30,9 @@ public class CompletableFutureDemo {
             //主线程会阻塞，等待子线程结束得到返回值
             System.out.println("return: " + supplyAsync.get());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
         System.out.println("main thread end, time: " + System.currentTimeMillis());
     }
@@ -47,7 +49,7 @@ public class CompletableFutureDemo {
             try {
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             return 1111;
         }, pool);
@@ -56,7 +58,7 @@ public class CompletableFutureDemo {
             try {
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             return "test:" + result;
         });
@@ -66,9 +68,9 @@ public class CompletableFutureDemo {
             System.out.println("supplyAsync return: " + supplyAsync.get());
             System.out.println("thenApply return: " + thenApply.get());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
         System.out.println("main thread end, time: " + System.currentTimeMillis());
     }
@@ -85,7 +87,7 @@ public class CompletableFutureDemo {
             try {
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             return 1111;
         }, pool);
@@ -94,7 +96,7 @@ public class CompletableFutureDemo {
             try {
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             return "test:" + result;
         }).thenAccept((result) -> {
@@ -102,14 +104,14 @@ public class CompletableFutureDemo {
             try {
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
         }).thenRun(() -> {
             System.out.println("start thenRun, 线程名：" + Thread.currentThread().getName());
             try {
                 Thread.sleep(2000l);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
             System.out.println("finish...");
         });
@@ -119,9 +121,9 @@ public class CompletableFutureDemo {
             System.out.println("supplyAsync return: " + supplyAsync.get());
             completableFuture.get();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
         System.out.println("main thread end, time: " + System.currentTimeMillis());
     }

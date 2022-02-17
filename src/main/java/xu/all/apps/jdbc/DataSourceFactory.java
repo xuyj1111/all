@@ -2,11 +2,13 @@ package xu.all.apps.jdbc;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 public class DataSourceFactory {
 
     private static String USERNAME = "datasource.username";
@@ -26,7 +28,7 @@ public class DataSourceFactory {
             //读取类路径下的配置文件
             properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
         HikariConfig config = defaultConfig();
         config.setUsername(properties.getProperty(USERNAME));

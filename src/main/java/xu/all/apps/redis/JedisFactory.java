@@ -1,5 +1,6 @@
 package xu.all.apps.redis;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -13,6 +14,7 @@ import redis.clients.jedis.JedisPoolConfig;
 import java.io.IOException;
 import java.util.Properties;
 
+@Slf4j
 public class JedisFactory {
 
     private static String REDIS_DATABASE = "redis.database";
@@ -30,7 +32,7 @@ public class JedisFactory {
             //读取类路径下的配置文件
             properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("系统异常", e);
         }
         String redisHost = properties.getProperty(REDIS_HOST);
         String redisPort = properties.getProperty(REDIS_PORT);

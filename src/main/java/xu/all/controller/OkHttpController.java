@@ -1,6 +1,7 @@
 package xu.all.controller;
 
 import com.google.common.collect.Maps;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import java.util.Map;
  * @Author: xuyujun
  * @Date: 2022/1/14
  */
+@Slf4j
 @RestController
 @RequestMapping("/okHttp")
 public class OkHttpController {
@@ -60,7 +62,7 @@ public class OkHttpController {
 //                Response execute = call.execute();
 //                System.out.println(execute.body().toString());
 //            } catch (IOException e) {
-//                e.printStackTrace();
+//                log.error("系统异常", e);
 //            }
 //        }).start();
     }
@@ -75,7 +77,7 @@ public class OkHttpController {
             try {
                 builder.append(k).append("=").append(URLEncoder.encode(v == null ? "" : v, "UTF-8")).append("&");
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+                log.error("系统异常", e);
             }
         });
         String parse = builder.toString();

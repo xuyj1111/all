@@ -8,6 +8,7 @@
 - config：配置类  
 - controller：controller类  
 - converter：转换类  
+- dataStructure：数据结构  
 - designPattern：设计模式  
 - dto：dto类  
 - entity：实例类（对应表）  
@@ -16,4 +17,5 @@
 - repository：repository类  
 - service：service类  
 - spring：spring组件  
+- test：测试小demo类
 - utils：工具类  

@@ -58,6 +58,7 @@ dependencies {
     implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.5.1'
     implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.5.1'
     implementation 'org.elasticsearch:elasticsearch:7.5.1'
+    implementation 'com.alibaba:transmittable-thread-local:2.12.1'
 
 
     implementation('xu.tools:tools-io:0.0.1-SNAPSHOT') { changing = true }

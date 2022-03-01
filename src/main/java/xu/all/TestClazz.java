@@ -6,6 +6,5 @@ public class TestClazz {
 
     @Test
     public void testMethod() {
-
     }
 }

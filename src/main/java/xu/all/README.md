@@ -13,6 +13,7 @@
 - dto：dto类  
 - entity：实例类（对应表）  
 - frw：第三方包类  
+- interfaces：接口
 - javaSE：Java基础
 - repository：repository类  
 - service：service类  

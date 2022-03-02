@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: all-service
   dataSource:
     username: root
     password: root
@@ -11,9 +13,9 @@ spring:
   batch:
     initialize-schema: always
   main:
-    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+    allow-bean-definition-overriding: true #当多个bean遇到同样名字的时候，是否允许覆盖注册
 server:
-  port: 8090
+  port: 8110
   tomcat:
     uri-encoding: UTF-8
     max-connections: 2000
@@ -23,3 +25,7 @@ zookeeper:
   address: 127.0.0.1:2181
   session-timeout: 4000
   connection-timeout-ms: 3000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka/

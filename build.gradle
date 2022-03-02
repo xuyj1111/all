@@ -26,6 +26,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-batch"
     implementation 'org.springframework.kafka:spring-kafka'
     implementation "org.springframework.data:spring-data-redis"
+    implementation "org.springframework.cloud:spring-cloud-dependencies:2.1.0.RELEASE"
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.1.0.RELEASE"
     implementation "redis.clients:jedis"
 
     implementation 'org.projectlombok:lombok'
@@ -59,7 +61,6 @@ dependencies {
     implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.5.1'
     implementation 'org.elasticsearch:elasticsearch:7.5.1'
     implementation 'com.alibaba:transmittable-thread-local:2.12.1'
-
 
     implementation('xu.tools:tools-io:0.0.1-SNAPSHOT') { changing = true }
     implementation('xu.tools:tools-json:0.0.1-SNAPSHOT') { changing = true }

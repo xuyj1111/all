@@ -1,11 +1,15 @@
 package xu.all.service.impl;
 
+import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import xu.all.entity.Test;
 import xu.all.repository.TestRepository;
 import xu.all.service.TestService;
-import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TestServiceImpl implements TestService {
@@ -16,7 +20,21 @@ public class TestServiceImpl implements TestService {
     @Override
     public Test getOne(Long id) {
         Test test = testRepository.findById(id).get();
-        DateTime time = new DateTime();
         return test;
+    }
+
+    @Override
+    public void batchCreate(List<Test> list) {
+        list.stream().forEach(a -> {
+            a.setDateCreated(DateTime.now());
+            a.setLastUpdated(DateTime.now());
+        });
+        testRepository.saveAll(list);
+    }
+
+    @Override
+    public List<Test> findAll(Pageable pageable) {
+        Page<Test> page = testRepository.findAll(pageable);
+        return page.getContent();
     }
 }

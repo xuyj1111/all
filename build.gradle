@@ -28,6 +28,7 @@ dependencies {
     implementation "org.springframework.data:spring-data-redis"
     implementation "org.springframework.cloud:spring-cloud-dependencies:2.1.0.RELEASE"
     implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.1.0.RELEASE"
+    implementation "org.springframework.cloud:spring-cloud-starter-config:2.1.0.RELEASE"
     implementation "redis.clients:jedis"
 
     implementation 'org.projectlombok:lombok'

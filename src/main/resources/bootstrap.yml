@@ -1,0 +1,15 @@
+#该配置文件是系统级，作用：先到配置中心加载配置,然后加载到application.yml中
+#优先级：bootstrap.yml > application.properties > application.yml
+spring:
+  application:
+    name: all
+  cloud:
+    config:
+      label: master
+      name: all               #配置文件名称，需要和spring.application.name一致，config服务的{application}不确定获取的是该配置还是spring.application.name
+      profile: dev
+      uri: http://localhost:8101
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka/

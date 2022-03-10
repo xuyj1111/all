@@ -1,9 +1,7 @@
 spring:
-  application:
-    name: all-service
   dataSource:
     username: root
-    password: 123456
+    password: root
     url: jdbc:mysql://127.0.0.1:3306/xu?useUnicode=yes&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&zeroDateTimeBehavior=convertToNull&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
   jpa:
@@ -27,7 +25,3 @@ zookeeper:
   address: 127.0.0.1:2181
   session-timeout: 4000
   connection-timeout-ms: 3000
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8100/eureka/

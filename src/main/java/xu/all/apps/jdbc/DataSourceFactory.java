@@ -8,6 +8,11 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+/**
+* @Description: 使用hikari连接池
+* @Author: xuyujun
+* @Date: 2022/3/8
+*/
 @Slf4j
 public class DataSourceFactory {
 

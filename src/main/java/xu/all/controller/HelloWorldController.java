@@ -1,10 +1,12 @@
 package xu.all.controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RefreshScope   //动态刷新配置（远程）
 @RestController
 @RequestMapping("/hello_world")
 public class HelloWorldController {

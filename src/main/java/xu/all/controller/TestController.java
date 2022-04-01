@@ -43,7 +43,7 @@ public class TestController {
                            @RequestParam(value = "sortField", required = false) String sortField,
                            @RequestParam(value = "direction", defaultValue = "DESC") Sort.Direction direction) {
         Sort sort = Sort.unsorted();
-        if (StringUtils.isNotBlank(sortField)){
+        if (StringUtils.isNotBlank(sortField)) {
             sort = Sort.by(direction, sortField);
         }
         Pageable pageable = PageRequest.of(page, size, sort);

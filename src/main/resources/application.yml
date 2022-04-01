@@ -12,6 +12,17 @@ spring:
     initialize-schema: always
   main:
     allow-bean-definition-overriding: true #当多个bean遇到同样名字的时候，是否允许覆盖注册
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password:
+    jedis:
+      pool:
+        max-active: 32
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
 server:
   port: 8110
   servlet:

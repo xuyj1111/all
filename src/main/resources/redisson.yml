@@ -1,0 +1,6 @@
+# 单节点配置
+singleServerConfig:
+  clientName: redis_localhost
+  address: redis://127.0.0.1:6379
+  password:
+  database: 0

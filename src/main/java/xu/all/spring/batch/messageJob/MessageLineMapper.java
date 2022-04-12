@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.MappingJsonFactory;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.springframework.batch.item.file.LineMapper;
-import xu.all.entity.Message;
+import xu.all.entity.jpa.Message;
 
 import java.util.Map;
 

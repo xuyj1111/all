@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.FileSystemResource;
-import xu.all.entity.Message;
+import xu.all.entity.jpa.Message;
 
 import javax.persistence.EntityManagerFactory;
 import java.io.File;

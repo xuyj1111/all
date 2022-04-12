@@ -1,6 +1,6 @@
 package xu.all.repository;
 
-import xu.all.entity.TestJPA;
+import xu.all.entity.jpa.TestJPA;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

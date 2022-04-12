@@ -12,6 +12,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         setInsertFieldValByName("dateCreated", DateTime.now(), metaObject);
         setInsertFieldValByName("lastUpdated", DateTime.now(), metaObject);
+        setInsertFieldValByName("version", 1L, metaObject);
     }
 
     @Override

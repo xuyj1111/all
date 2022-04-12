@@ -1,4 +1,4 @@
-package xu.all.entity;
+package xu.all.entity.jpa;
 
 import xu.all.converter.JodaTimeConverter;
 import lombok.Data;

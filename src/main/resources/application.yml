@@ -40,3 +40,6 @@ zookeeper:
   connection-timeout-ms: 3000
 logging:
   config: classpath:logback.xml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -4,7 +4,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.ItemWriteListener;
 import org.springframework.beans.factory.annotation.Autowired;
-import xu.all.entity.Message;
+import xu.all.entity.jpa.Message;
 
 import java.io.Writer;
 import java.util.List;

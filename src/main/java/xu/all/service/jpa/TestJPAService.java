@@ -1,7 +1,7 @@
 package xu.all.service.jpa;
 
 import org.springframework.data.domain.Pageable;
-import xu.all.entity.TestJPA;
+import xu.all.entity.jpa.TestJPA;
 
 import java.util.List;
 

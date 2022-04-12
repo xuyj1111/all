@@ -18,11 +18,11 @@ import javax.persistence.*;
  * @Date: 2021/8/24
  */
 @Entity
-@Table
+@Table(name = "test_jpa")
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Test extends BaseEntity {
+public class TestJPA extends BaseEntity {
 
     private static final long serialVersionUID = 2499955129350706462L;
     @Id

@@ -8,7 +8,6 @@ import java.util.Date;
 
 @Converter
 public class JodaTimeConverter implements AttributeConverter<DateTime, Date> {
-    private static final int TIME_ZONE_OFFSET_MINUTES = -480;
 
     public JodaTimeConverter() {
     }

@@ -38,3 +38,5 @@ zookeeper:
   address: 127.0.0.1:2181
   session-timeout: 4000
   connection-timeout-ms: 3000
+logging:
+  config: classpath:logback.xml

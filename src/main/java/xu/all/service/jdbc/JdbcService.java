@@ -11,14 +11,13 @@ import java.util.Map;
 public class JdbcService {
 
     @Autowired
-    private NamedParameterJdbcTemplate jdbcTemplate;
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public String getName(Long id) {
         String sql = "select name from test where id = :id";
         Map<String, Object> params = new HashMap<>();
         params.put("id", id);
-        return jdbcTemplate.queryForObject(sql, params, String.class);
+        return namedParameterJdbcTemplate.queryForObject(sql, params, String.class);
     }
-
 
 }

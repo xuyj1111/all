@@ -1,0 +1,4 @@
+GET http://localhost:8110/api/all/hello_world
+Accept: application/json
+
+###

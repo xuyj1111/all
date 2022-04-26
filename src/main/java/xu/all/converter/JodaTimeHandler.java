@@ -5,26 +5,33 @@ import org.apache.ibatis.type.TypeHandler;
 import org.joda.time.DateTime;
 
 import java.sql.*;
+import java.util.Objects;
 
 public class JodaTimeHandler implements TypeHandler<DateTime> {
-
     @Override
     public void setParameter(PreparedStatement ps, int i, DateTime parameter, JdbcType jdbcType) throws SQLException {
-        ps.setTimestamp(i, new Timestamp(parameter.getMillis()));
+        ps.setTimestamp(i, Objects.isNull(parameter) ? null : new Timestamp(parameter.getMillis()));
     }
 
     @Override
     public DateTime getResult(ResultSet rs, String columnName) throws SQLException {
-        return new DateTime(rs.getTimestamp(columnName).getTime());
+        return toDateTime(rs.getTimestamp(columnName));
     }
 
     @Override
     public DateTime getResult(ResultSet rs, int columnIndex) throws SQLException {
-        return new DateTime(rs.getTimestamp(columnIndex).getTime());
+        return toDateTime(rs.getTimestamp(columnIndex));
     }
 
     @Override
     public DateTime getResult(CallableStatement cs, int columnIndex) throws SQLException {
-        return new DateTime(cs.getTimestamp(columnIndex).getTime());
+        return toDateTime(cs.getTimestamp(columnIndex));
+    }
+
+    private static DateTime toDateTime(Timestamp timestamp) {
+        if (Objects.isNull(timestamp)) {
+            return null;
+        }
+        return new DateTime(timestamp.getTime());
     }
 }

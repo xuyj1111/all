@@ -1,4 +1,4 @@
-package xu.all.javaSE;
+package xu.all.jdk;
 
 import org.junit.jupiter.api.Test;
 

@@ -6,7 +6,7 @@ import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import xu.all.dto.PeopleBuilderDTO;
-import xu.all.javaSE.multithread.MyTaskDecorator;
+import xu.all.jdk.multithread.MyTaskDecorator;
 
 import java.util.concurrent.Executor;
 

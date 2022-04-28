@@ -1,4 +1,4 @@
-package xu.all.english;
+package xu.all.other;
 
 import java.io.IOException;
 import java.util.Random;

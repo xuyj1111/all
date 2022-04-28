@@ -1,8 +1,8 @@
-package xu.all.javaSE.jdk8.option;
+package xu.all.jdk.jdk8.option;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import xu.all.javaSE.jdk8.stream.DemoDTO;
+import xu.all.jdk.jdk8.stream.DemoDTO;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;

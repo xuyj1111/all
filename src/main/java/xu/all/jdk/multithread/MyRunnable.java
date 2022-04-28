@@ -1,4 +1,4 @@
-package xu.all.javaSE.multithread;
+package xu.all.jdk.multithread;
 
 public class MyRunnable implements Runnable{
     @Override

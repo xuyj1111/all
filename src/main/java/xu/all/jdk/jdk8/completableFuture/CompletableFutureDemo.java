@@ -1,4 +1,4 @@
-package xu.all.javaSE.jdk8.completableFuture;
+package xu.all.jdk.jdk8.completableFuture;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

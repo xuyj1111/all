@@ -19,7 +19,7 @@ public class TestController {
      */
     @PostMapping("/valid")
     public void testValid(@RequestBody @Valid TestDTO dto) {
-        System.out.println("number: " + dto);
+        System.out.println("dto: " + dto);
     }
 
     /**
@@ -27,6 +27,6 @@ public class TestController {
      */
     @PostMapping("/validated")
     public void testValidated(@RequestBody @Validated({GroupInterface.class}) TestDTO dto) {
-        System.out.println("number: " + dto);
+        System.out.println("dto: " + dto);
     }
 }

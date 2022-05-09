@@ -4,8 +4,11 @@ import lombok.Data;
 import xu.all.interfaces.FirstGroupInterface;
 import xu.all.interfaces.SecordGroupInterface;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
 * @Description: 测试dto，不对应test表
@@ -19,11 +22,26 @@ public class TestDTO extends BaseDTO{
     @Min(10)
     private Integer number;
 
-    //在First分组时，判断不能为空
+    /**
+     * @Description: @Valid 的嵌套校验
+     */
+    @Valid
+    private InnerDTO innerDTO;
+
+    /**
+     * @Description: @Validated 的分组校验
+     */
     @NotEmpty(groups={FirstGroupInterface.class})
     private String id;
-
-    //在Secord分组时，判断不能为空
     @NotEmpty(groups={SecordGroupInterface.class})
     private String name;
+
+    @Data
+    public class InnerDTO {
+        @NotNull
+        private Long id;
+
+        @NotBlank
+        private String name;
+    }
 }

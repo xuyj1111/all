@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 /**
- * @Description: test表实体类
- * **
  * @Entity： 标识该类为实体类，使用默认的orm规则，即class名即数据库表中表名，class字段名即表中的字段名
  * @Table： 默认类名对应表名，可修改
  * @Column： 默认属性名对应字段名，可修改
@@ -18,11 +16,11 @@ import javax.persistence.*;
  * @Date: 2021/8/24
  */
 @Entity
-@Table(name = "test_jpa")
+@Table(name = "jpa")
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class TestJPA extends BaseEntity {
+public class Jpa extends BaseEntity {
 
     private static final long serialVersionUID = 2499955129350706462L;
     @Id

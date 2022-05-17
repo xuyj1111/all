@@ -11,12 +11,12 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
-* @Description: 测试dto，不对应test表
+* @Description: demo dto
 * @Author: xuyujun
 * @Date: 2022/3/1
 */
 @Data
-public class TestDTO extends BaseDTO{
+public class DemoDTO extends BaseDTO{
     private static final long serialVersionUID = -6939309990575010605L;
 
     @Min(10)

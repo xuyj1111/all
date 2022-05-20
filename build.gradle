@@ -67,6 +67,7 @@ dependencies {
     implementation 'com.alibaba:transmittable-thread-local:2.12.1'
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
 
+    implementation 'cn.hutool:hutool-all:5.8.1'
     implementation('xu.tools:tools-io:0.0.1-SNAPSHOT') { changing = true }
     implementation('xu.tools:tools-json:0.0.1-SNAPSHOT') { changing = true }
 }

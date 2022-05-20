@@ -30,6 +30,9 @@ doc：https://github.com/google/guava/wiki
 doc：http://hamcrest.org/JavaHamcrest/?utm_source=testingpai.com  
 类介绍：
 * HamcrestDemo：测试类
+## Hutool
+简介：Java工具类库  
+doc：https://hutool.cn/docs/#/
 ## Jackson
 简介：json库  
 doc：https://github.com/FasterXML/jackson  

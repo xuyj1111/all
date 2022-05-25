@@ -1,16 +1,16 @@
 package xu.all.algorithm.sort;
 
-import cn.hutool.core.util.ArrayUtil;
+import cn.hutool.core.util.NumberUtil;
 import xu.all.algorithm.DataFactory;
 
 import java.util.Arrays;
 
 /**
- * @Description: 冒泡排序
+ * @Description: 插入排序
  * @Author: xuyujun
- * @Date: 2022/5/23
+ * @Date: 2022/5/24
  */
-public class BubbleSort {
+public class InsertionSort {
 
     public static void main(String[] args) {
         Integer[] ints = DataFactory.buildTenDisorderNums();
@@ -20,16 +20,14 @@ public class BubbleSort {
     }
 
     private static void sort(Integer[] ints) {
-        for (int i = 1, length = ints.length; i < length; i++) {
-            boolean swapped = false;
-            for (int j = 0; j < length - 1; j++) {
-                if (ints[j] > ints[j + 1]) {
-                    ArrayUtil.swap(ints, j, j + 1);
-                    swapped = true;
-                }
+        for (int i = 1; i < ints.length; i++) {
+            int insertValue = ints[i];
+            int j;
+            for (j = i - 1; j >= 0 && NumberUtil.compare(ints[j], insertValue) > 0; j--) {
+                ints[j + 1] = ints[j];
             }
-            if (!swapped) {
-                break;
+            if (j != i - 1) {
+                ints[j + 1] = insertValue;
             }
         }
     }

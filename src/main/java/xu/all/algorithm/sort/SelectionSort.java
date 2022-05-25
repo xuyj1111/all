@@ -6,11 +6,11 @@ import xu.all.algorithm.DataFactory;
 import java.util.Arrays;
 
 /**
- * @Description: 冒泡排序
+ * @Description: 选择排序
  * @Author: xuyujun
- * @Date: 2022/5/23
+ * @Date: 2022/5/24
  */
-public class BubbleSort {
+public class SelectionSort {
 
     public static void main(String[] args) {
         Integer[] ints = DataFactory.buildTenDisorderNums();
@@ -20,16 +20,15 @@ public class BubbleSort {
     }
 
     private static void sort(Integer[] ints) {
-        for (int i = 1, length = ints.length; i < length; i++) {
-            boolean swapped = false;
-            for (int j = 0; j < length - 1; j++) {
-                if (ints[j] > ints[j + 1]) {
-                    ArrayUtil.swap(ints, j, j + 1);
-                    swapped = true;
+        for (int i = 0, length = ints.length; i < length; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < length; j++) {
+                if (ints[j].compareTo(ints[minIndex]) < 0) {
+                    minIndex = j;
                 }
             }
-            if (!swapped) {
-                break;
+            if (minIndex != i) {
+                ArrayUtil.swap(ints, minIndex, i);
             }
         }
     }

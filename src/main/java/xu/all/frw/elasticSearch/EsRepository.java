@@ -1,7 +1,5 @@
 package xu.all.frw.elasticSearch;
 
-import org.elasticsearch.cluster.metadata.MappingMetaData;
-
 import java.util.Map;
 import java.util.Set;
 
@@ -15,9 +13,11 @@ public interface EsRepository {
 
     Set<String> getAllIndex();
 
-    Map.Entry<String, MappingMetaData> getIndexMapping(String indexName);
+    Map<String, String> getIndexMapping(String indexName);
 
     void putMapping(String indexName, String source);
 
-    void putSettings(String indexName, String key, String value);
+    Map<String, Object> getIndexSettings(String indexName);
+
+    void setRefreshInterval(String indexName, String interval);
 }

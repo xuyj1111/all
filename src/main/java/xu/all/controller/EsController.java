@@ -2,7 +2,6 @@ package xu.all.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.cluster.metadata.MappingMetaData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import xu.all.frw.elasticSearch.EsRepository;
@@ -44,7 +43,7 @@ public class EsController {
     }
 
     @GetMapping("/index/mapping")
-    public Map.Entry<String, MappingMetaData> getIndexMapping(@RequestParam("indexName") String indexName) {
+    public Map<String, String> getIndexMapping(@RequestParam("indexName") String indexName) {
         log.info(">>> request get index mapping in es, indexName[{}]", indexName);
         return esRepository.getIndexMapping(indexName);
     }
@@ -56,11 +55,16 @@ public class EsController {
         esRepository.putMapping(indexName, source);
     }
 
-    @PutMapping("/index/settings")
-    public void putIndexSettings(@RequestParam("indexName") String indexName,
-                                 @RequestParam("key") String key,
-                                 @RequestParam("value") String value) {
-        log.info(">>> request put index settings in es, indexName[{}], key[{}], value[{}]", indexName, key, value);
-        esRepository.putSettings(indexName, key, value);
+    @GetMapping("/index/settings")
+    public Map<String, Object> getIndexSettings(@RequestParam("indexName") String indexName) {
+        log.info(">>> request get index settings in es, indexName[{}]", indexName);
+        return esRepository.getIndexSettings(indexName);
+    }
+
+    @PutMapping("/index/interval")
+    public void setRefreshInterval(@RequestParam("indexName") String indexName,
+                                   @RequestParam("interval") String interval) {
+        log.info(">>> request put index settings in es, indexName[{}], interval[{}]", indexName, interval);
+        esRepository.setRefreshInterval(indexName, interval);
     }
 }

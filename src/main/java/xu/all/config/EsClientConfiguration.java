@@ -1,12 +1,15 @@
 package xu.all.config;
 
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.json.jackson.JacksonJsonpMapper;
+import co.elastic.clients.transport.rest_client.RestClientTransport;
 import org.apache.http.HttpHost;
 import org.apache.http.impl.nio.reactor.IOReactorConfig;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
-import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import xu.tools.json.JsonMapper;
 
 @Configuration
 public class EsClientConfiguration {
@@ -19,14 +22,15 @@ public class EsClientConfiguration {
      * @Description: 构建客户端对象
      */
     @Bean
-    public RestHighLevelClient client() {
+    public ElasticsearchClient client() {
         HttpHost host = new HttpHost(HOST_NAME, PORT);
         RestClientBuilder builder = RestClient.builder(host).setHttpClientConfigCallback(requestConfig ->
                 requestConfig.setKeepAliveStrategy((response, context) -> KEEP_ALIVE_MS)
                         .setDefaultIOReactorConfig(IOReactorConfig.custom()
                                 .setSoKeepAlive(true)
                                 .build()));
-        return new RestHighLevelClient(builder);
+        return new ElasticsearchClient(new RestClientTransport(
+                builder.build(), new JacksonJsonpMapper(JsonMapper.getMapper())));
     }
 
 }

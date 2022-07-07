@@ -1,10 +1,12 @@
 package xu.all.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import xu.all.dto.DemoDTO;
 import xu.all.interfaces.GroupInterface;
+import xu.all.spring.bean.MyBeanNameAware;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,9 @@ import java.util.UUID;
 @RestController
 @RequestMapping
 public class TestController {
+
+    @Autowired
+    private MyBeanNameAware myBeanNameAware;
 
     @Value("${hello}")
     private String hello;
@@ -87,6 +92,14 @@ public class TestController {
         } else {
             System.out.println(uuid);
         }
+    }
+
+    /**
+     * @Description: BeanNameAware的使用
+     */
+    @RequestMapping("/beanNameAware")
+    public String testBeanNameAware() {
+        return myBeanNameAware.getBeanName();
     }
 
 }

@@ -25,6 +25,11 @@ spring:
         min-idle: 0
     redisson:
       config: classpath:redisson.yml
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 server:
   port: 8110
   servlet:

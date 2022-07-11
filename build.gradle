@@ -27,7 +27,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.springframework.data:spring-data-redis'
-//    implementation 'org.springframework.cloud:spring-cloud-dependencies:2.1.0.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-dependencies:Greenwich.RELEASE'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.1.0.RELEASE'
     implementation 'org.springframework.cloud:spring-cloud-starter-config:2.1.0.RELEASE'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:2.1.0.RELEASE'

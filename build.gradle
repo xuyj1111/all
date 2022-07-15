@@ -78,6 +78,8 @@ dependencies {
     implementation 'cglib:cglib:3.3.0'
     implementation 'com.alibaba:transmittable-thread-local:2.12.1'
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
+    implementation 'org.activiti:activiti-spring:6.0.0'
+    implementation 'org.activiti:activiti-engine:6.0.0'
 }
 
 test {

@@ -65,7 +65,6 @@ doc：http://www.quartz-scheduler.org/documentation/quartz-2.3.0/
 类介绍：
 * SendMessageJob：一个任务
 * MyScheduler：计划表，运行任务
-* WatcherApi：zookeeper监听类
 ## RestAssured
 简介：HTTP接口测试  
 doc：https://github.com/xuyj1111/demo/tree/master/src/main/resources/doc  
@@ -87,4 +86,5 @@ doc：https://zookeeper.apache.org/doc/current/index.html
 * ZookeeperConfig：zookeeper配置类
 * ZookeeperApi：zookeeperAPI类
 * ZookeeperController：controller类
+* WatcherApi：zookeeper监听类
 

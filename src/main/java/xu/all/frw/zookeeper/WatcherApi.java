@@ -1,4 +1,4 @@
-package xu.all.frw.quartz;
+package xu.all.frw.zookeeper;
 
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;

@@ -1,7 +1,6 @@
 package xu.all.frw.zookeeper;
 
 import lombok.extern.slf4j.Slf4j;
-import xu.all.frw.quartz.WatcherApi;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;

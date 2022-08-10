@@ -1,71 +1,120 @@
 package xu.all.config;
 
-import org.activiti.engine.HistoryService;
-import org.activiti.engine.RepositoryService;
-import org.activiti.engine.RuntimeService;
-import org.activiti.engine.TaskService;
+import org.activiti.engine.*;
+import org.activiti.engine.impl.cfg.DelegateExpressionFieldInjectionMode;
+import org.activiti.engine.impl.cfg.TransactionPropagation;
+import org.activiti.engine.impl.history.HistoryLevel;
+import org.activiti.engine.impl.interceptor.CommandConfig;
 import org.activiti.spring.ProcessEngineFactoryBean;
 import org.activiti.spring.SpringProcessEngineConfiguration;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.PlatformTransactionManager;
+import xu.all.frw.activiti.CustomDelegateInterceptor;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 
 @Configuration
 public class ActivitiConfig {
 
-    @Autowired
-    private DataSource dataSource;
+    @Value("${activiti.asyncExecutor.corePoolSize:2}")
+    private int asyncExecutorCorePoolSize;
 
-    @Autowired
-    private PlatformTransactionManager platformTransactionManager;
+    @Value("${activiti.asyncExecutor.maxPoolSize:10}")
+    private int asyncExecutorMaxPoolSize;
+
+    @Value("${activiti.asyncExecutor.threadPoolQueueSize:100}")
+    private int asyncExecutorThreadPoolQueueSize;
 
     @Bean
-    public SpringProcessEngineConfiguration springProcessEngineConfiguration() {
+    public SpringProcessEngineConfiguration springProcessEngineConfiguration(DataSource dataSource, PlatformTransactionManager transactionManager, CustomDelegateInterceptor customDelegateInterceptor) {
         SpringProcessEngineConfiguration spec = new SpringProcessEngineConfiguration();
+//        spec.setIdGenerator(new StrongUuidGenerator());
         spec.setDataSource(dataSource);
-        spec.setTransactionManager(platformTransactionManager);
-        spec.setDatabaseSchema("true");
-        Resource[] resources = null;
-        // 启动自动部署流程
-        try {
-            resources = new PathMatchingResourcePatternResolver().getResources("classpath*:bpmn/*.bpmn");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        spec.setDeploymentResources(resources);
+        spec.setTransactionManager(transactionManager);
+        // 建表策略
+        spec.setDatabaseSchemaUpdate(SpringProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
+        // 异步执行器开启
+        spec.setAsyncExecutorActivate(true);
+        spec.setDelegateExpressionFieldInjectionMode(DelegateExpressionFieldInjectionMode.MIXED);
+        spec.setAsyncExecutorCorePoolSize(asyncExecutorCorePoolSize);
+        spec.setAsyncExecutorMaxPoolSize(asyncExecutorMaxPoolSize);
+        spec.setAsyncExecutorThreadPoolQueueSize(asyncExecutorThreadPoolQueueSize);
+        spec.setHistory(HistoryLevel.NONE.getKey());
+        spec.setDelegateInterceptor(customDelegateInterceptor);
+        // https://community.alfresco.com/message/820368-got-lots-of-deadlock-exception
+        spec.setBulkInsertEnabled(false);
+        spec.setAsyncExecutorMaxAsyncJobsDuePerAcquisition(100);
+        spec.setAsyncExecutorMaxTimerJobsPerAcquisition(100);
+        spec.setAsyncExecutorDefaultTimerJobAcquireWaitTime(10 * 1000);
+        spec.setAsyncExecutorMessageQueueMode(true);
+        spec.setDefaultCommandConfig(new CommandConfig(true, TransactionPropagation.NOT_SUPPORTED));
         return spec;
     }
 
     @Bean
-    public ProcessEngineFactoryBean processEngine() {
+    public CustomDelegateInterceptor customDelegateInterceptor() {
+        return new CustomDelegateInterceptor();
+    }
+
+    @Bean
+    public ProcessEngineFactoryBean processEngine(SpringProcessEngineConfiguration processEngineConfiguration) {
         ProcessEngineFactoryBean processEngineFactoryBean = new ProcessEngineFactoryBean();
-        processEngineFactoryBean.setProcessEngineConfiguration(springProcessEngineConfiguration());
+        processEngineFactoryBean.setProcessEngineConfiguration(processEngineConfiguration);
         return processEngineFactoryBean;
     }
 
     @Bean
-    public RepositoryService repositoryService() throws Exception {
-        return processEngine().getObject().getRepositoryService();
+    ManagementService managementService(ProcessEngine processEngine) {
+        return processEngine.getManagementService();
     }
 
+    /** 
+     * @Description: 执行管理，包括启动、推进、删除流程实例等操作
+     */ 
     @Bean
-    public RuntimeService runtimeService() throws Exception {
-        return processEngine().getObject().getRuntimeService();
+    RuntimeService runtimeService(ProcessEngine processEngine) {
+        return processEngine.getRuntimeService();
     }
 
+    /** 
+     * @Description: 任务管理
+     */ 
     @Bean
-    public TaskService taskService() throws Exception {
-        return processEngine().getObject().getTaskService();
+    TaskService taskService(ProcessEngine processEngine) {
+        return processEngine.getTaskService();
     }
 
+    /**
+     * @Description: 历史管理(执行完的数据的管理)
+     */
     @Bean
-    public HistoryService historyService() throws Exception {
-        return processEngine().getObject().getHistoryService();
+    HistoryService historyService(ProcessEngine processEngine) {
+        return processEngine.getHistoryService();
+    }
+
+    /**
+     * @Description: 管理流程定义
+     */
+    @Bean
+    RepositoryService repositoryService(ProcessEngine processEngine) {
+        return processEngine.getRepositoryService();
+    }
+
+    /**
+     * @Description: 一个可选服务，任务表单管理
+     */
+    @Bean
+    FormService formService(ProcessEngine processEngine) {
+        return processEngine.getFormService();
+    }
+
+    /**
+     * @Description: 组织机构管理
+     */
+    @Bean
+    IdentityService identityService(ProcessEngine processEngine) {
+        return processEngine.getIdentityService();
     }
 }

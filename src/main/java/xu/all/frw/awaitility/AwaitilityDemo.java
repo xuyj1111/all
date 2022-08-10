@@ -31,7 +31,7 @@ public class AwaitilityDemo {
             for (int i = 0; i < 10; i++) {
                 System.out.println(Thread.currentThread().getName() + ": i=" + i);
                 try {
-                    Thread.sleep(1000l);
+                    Thread.sleep(1000L);
                 } catch (InterruptedException e) {
                     log.error("系统异常", e);
                 }
@@ -59,7 +59,7 @@ public class AwaitilityDemo {
             for (int i = 0; i < 10; i++) {
                 System.out.println(Thread.currentThread().getName() + ": i=" + i);
                 try {
-                    Thread.sleep(1000l);
+                    Thread.sleep(1000L);
                 } catch (InterruptedException e) {
                     log.error("系统异常", e);
                 }

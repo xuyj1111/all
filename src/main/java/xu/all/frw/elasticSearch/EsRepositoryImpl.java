@@ -16,7 +16,7 @@ import java.util.Set;
 
 /**
  * @Description: es持久层实现类
- * xu.all.config.EsClientConfiguration es配置类
+ * xu.all.config.EsClientConfig es配置类
  * xu.all.controller.EsController es Controller类
  * @Author: xuyujun
  * @Date: 2022/2/15

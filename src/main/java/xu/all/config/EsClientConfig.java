@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import xu.tools.json.JsonMapper;
 
 @Configuration
-public class EsClientConfiguration {
+public class EsClientConfig {
 
     private static final String HOST_NAME = "127.0.0.1";
     private static final int PORT = 9200;

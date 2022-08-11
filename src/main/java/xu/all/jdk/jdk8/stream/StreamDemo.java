@@ -15,6 +15,23 @@ import java.util.stream.Collectors;
 public class StreamDemo {
 
     /**
+     * @Description: peek操作
+     * peek 会继续返回Stream对象
+     * forEach 返回void 结束Stream操作
+     *
+     * 流生命周期有三个阶段：
+     * 1. 起始生成阶段
+     * 2. 中间操作（惰性）
+     * 3. 终端操作，分为 最终的消费 （foreach 之类的）和 归纳 （collect）两类
+     * 如果没有终端操作，中间操作将不执行
+     */
+    @Test
+    public void streamPeek() {
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        List<Integer> collect = integers.stream().peek(System.out::print).collect(Collectors.toList());
+    }
+
+    /**
      * @Description: 串行流遍历
      */
     @Test

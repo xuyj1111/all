@@ -143,7 +143,7 @@ public class MultithreadDemo {
         for (int i = 0; i < 3; i++) {
             threadPool.execute(runnable);
         }
-        Thread.sleep(5000l);
+        Thread.sleep(5000L);
         System.out.println("主线程等了五秒");
     }
 

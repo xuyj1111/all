@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DemoClass {
 
@@ -29,6 +31,18 @@ public class DemoClass {
         } catch (MalformedURLException e) {
             System.out.println("verify error");
         }
+    }
+
+    /**
+     * @Description: Pattern的使用
+     */
+    @Test
+    public void patternDemo() {
+        Pattern p = Pattern.compile("runoo+b");
+        Matcher matcher = p.matcher("runoooooob");
+        System.out.println(matcher.matches());
+
+        System.out.println(Pattern.matches("runoo+b", "runoooooob"));
     }
 
 }

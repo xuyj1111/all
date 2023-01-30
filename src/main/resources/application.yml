@@ -4,6 +4,7 @@ spring:
     password: root
     url: jdbc:mysql://127.0.0.1:3306/xu?useUnicode=yes&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&zeroDateTimeBehavior=convertToNull&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
     hibernate:
@@ -48,3 +49,8 @@ logging:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+elastic:
+  job:
+    zk:
+      server-lists: 127.0.0.1:2181
+      namespace: mine_job

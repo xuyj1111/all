@@ -55,7 +55,7 @@ dependencies {
     implementation 'org.apache.curator:curator-recipes:2.10.0'
     // 任务调度
     implementation 'org.quartz-scheduler:quartz:2.2.3'
-    implementation 'com.dangdang:elastic-job-lite-core:2.1.5'
+    implementation 'com.github.yinjihuan:elastic-job-spring-boot-starter:1.0.5'
     // 测试
     implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     implementation 'io.rest-assured:rest-assured:4.2.0'

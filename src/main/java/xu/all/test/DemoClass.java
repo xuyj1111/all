@@ -1,9 +1,12 @@
-package xu.all.jdk;
+package xu.all.test;
 
 import org.junit.jupiter.api.Test;
+import xu.all.annotation.SimpleAnno;
+import xu.all.dto.TestAnnoDTO;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,4 +48,20 @@ public class DemoClass {
         System.out.println(Pattern.matches("runoo+b", "runoooooob"));
     }
 
+    /**
+     * @Description: 自定义注解
+     */
+    @Test
+    public void testAnnotation() {
+        TestAnnoDTO testAnnoDTO = new TestAnnoDTO();
+        Class<? extends TestAnnoDTO> aClass = testAnnoDTO.getClass();
+        SimpleAnno annotation = aClass.getAnnotation(SimpleAnno.class);
+        if (Objects.isNull(annotation)) {
+            System.out.println("该类没有使用 [SimpleAnno] 注解");
+        } else {
+            testAnnoDTO.setName(annotation.name());
+            testAnnoDTO.setAge(annotation.age());
+            System.out.println(testAnnoDTO);
+        }
+    }
 }

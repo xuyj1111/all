@@ -49,9 +49,7 @@ dependencies {
     implementation 'jakarta.json:jakarta.json-api:2.0.1'
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     // zookeeper
-    implementation('org.apache.zookeeper:zookeeper:3.4.13') {
-        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
-    }
+    // recipes 将 curator-framework、curator-client，还有 zookeeper 一并引入了
     implementation 'org.apache.curator:curator-recipes:2.10.0'
     // 任务调度
     implementation 'org.quartz-scheduler:quartz:2.2.3'

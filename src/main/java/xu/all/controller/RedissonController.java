@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/redisson")
 public class RedissonController {
 
-    private static final String product = "MoonCake";
+    private static final String PRODUCT = "MoonCake";
 
     @Autowired
     private RedissonClient redissonClient;
@@ -28,7 +28,7 @@ public class RedissonController {
     @RequestMapping("/lockAdd")
     public void lockAdd() throws Exception {
         //对数据进行加锁
-        RLock lock = redissonClient.getLock(product);
+        RLock lock = redissonClient.getLock(PRODUCT);
         //加锁
         lock.lock();
         System.out.println(Thread.currentThread().getName());

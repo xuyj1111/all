@@ -1,4 +1,4 @@
-package xu.all.jdk.multithread;
+package xu.all.test.multithread;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.task.TaskDecorator;

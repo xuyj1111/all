@@ -1,4 +1,4 @@
-package xu.all.jdk.multithread;
+package xu.all.test.multithread;
 
 import java.util.concurrent.Callable;
 

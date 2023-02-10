@@ -1,7 +1,9 @@
 package xu.all.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class PeopleDTO extends BaseDTO {
     private static final long serialVersionUID = 7099487348591915155L;

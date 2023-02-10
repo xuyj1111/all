@@ -13,7 +13,7 @@
 - entity：实例类（对应表）
 - frw：第三方包类
 - interfaces：接口
-- jdk：jdk的练习
+- jdk8：jdk8的练习
 - listener：监听类
 - mapper：for mybatis-plus
 - repository：for jpa

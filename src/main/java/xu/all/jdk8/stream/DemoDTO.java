@@ -1,4 +1,4 @@
-package xu.all.jdk.jdk8.stream;
+package xu.all.jdk8.stream;
 
 import lombok.Data;
 

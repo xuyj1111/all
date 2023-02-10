@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import xu.all.jdk.multithread.MyTaskDecorator;
+import xu.all.test.multithread.MyTaskDecorator;
 
 import java.util.concurrent.Executor;
 

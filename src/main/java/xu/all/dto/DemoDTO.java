@@ -1,6 +1,7 @@
 package xu.all.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import xu.all.interfaces.FirstGroupInterface;
 import xu.all.interfaces.SecordGroupInterface;
 
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 * @Author: xuyujun
 * @Date: 2022/3/1
 */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class DemoDTO extends BaseDTO{
     private static final long serialVersionUID = -6939309990575010605L;

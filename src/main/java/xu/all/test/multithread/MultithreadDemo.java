@@ -1,10 +1,11 @@
-package xu.all.jdk.multithread;
+package xu.all.test.multithread;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Description: 多线程
@@ -37,11 +38,65 @@ public class MultithreadDemo {
         thread.start();
         try {
             System.out.println(futureTask.get());
-        } catch (InterruptedException e) {
-            log.error("系统异常", e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             log.error("系统异常", e);
         }
+    }
+
+    @Test
+    public void testReentrantLock() throws InterruptedException {
+        ReentrantLock lock = new ReentrantLock();
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    lock.lock();
+                    System.out.println("t1拿到锁");
+                    Thread.sleep(1000L);
+                    System.out.println("t1执行结束");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    lock.unlock();
+                }
+            }
+        });
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean flag = true;
+                try {
+                    System.out.println("t2等待拿锁");
+//                    ****************** start **********************
+//                    lock.lock();
+//                    lock.lockInterruptibly();
+                    flag = lock.tryLock(200, TimeUnit.MILLISECONDS);
+//                    ****************** end **********************
+                    if (flag) {
+                        System.out.println("t2拿到锁");
+                        System.out.println("t2执行结束");
+                    } else {
+                        System.out.println("指定时间内没有拿到锁，over");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (flag) {
+                        lock.unlock();
+                    }
+                }
+            }
+        });
+        t1.start();
+        // 保证 t1 拿到锁
+        Thread.sleep(10L);
+        t2.start();
+        // 保证 t2 在等待锁
+        Thread.sleep(10L);
+        // 若隐藏线程中断语句，t2 正常等待锁 或 指定时间内等待
+        t2.interrupt();
+        // 在测试类中需要保持运行一会
+        Thread.sleep(2000L);
     }
 
     /**

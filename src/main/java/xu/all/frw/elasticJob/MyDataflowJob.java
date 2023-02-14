@@ -10,8 +10,9 @@ import java.util.List;
 import java.util.Stack;
 
 @Slf4j
-@ElasticJobConf(name = "MyDataflowJob", cron = "0/15 * * * * ?", shardingTotalCount = 2
-        , shardingItemParameters = "0=shard0,1=shard1", description = "数据流任务", eventTraceRdbDataSource = "dataSource")
+//关闭定时任务
+//@ElasticJobConf(name = "MyDataflowJob", cron = "0/15 * * * * ?", shardingTotalCount = 2
+//        , shardingItemParameters = "0=shard0,1=shard1", description = "数据流任务", eventTraceRdbDataSource = "dataSource")
 public class MyDataflowJob implements DataflowJob<Object> {
 
     private static Stack stack = new Stack<>();

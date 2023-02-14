@@ -2,7 +2,6 @@ package xu.all.algorithm.sort;
 
 import cn.hutool.core.util.ArrayUtil;
 import com.google.common.collect.Lists;
-import xu.all.algorithm.DataFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;

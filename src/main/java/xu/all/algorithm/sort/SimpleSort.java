@@ -1,7 +1,5 @@
 package xu.all.algorithm.sort;
 
-import xu.all.algorithm.DataFactory;
-
 import java.util.Arrays;
 
 /**

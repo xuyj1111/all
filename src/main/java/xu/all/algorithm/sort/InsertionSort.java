@@ -1,7 +1,6 @@
 package xu.all.algorithm.sort;
 
 import cn.hutool.core.util.NumberUtil;
-import xu.all.algorithm.DataFactory;
 
 import java.util.Arrays;
 

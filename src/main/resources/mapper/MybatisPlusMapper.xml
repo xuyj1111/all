@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xu.all.mapper.MybatisPlusMapper">
+
+
+    <select id="getByName" resultType="xu.all.entity.mybatis.MybatisPlus">
+        SELECT *
+        FROM mybatis_plus
+        WHERE name = #{name}
+        ORDER BY 1
+    </select>
+</mapper>

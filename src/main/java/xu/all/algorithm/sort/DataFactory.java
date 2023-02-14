@@ -1,4 +1,4 @@
-package xu.all.algorithm;
+package xu.all.algorithm.sort;
 
 import java.util.Random;
 

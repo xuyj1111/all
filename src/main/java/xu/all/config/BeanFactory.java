@@ -2,10 +2,30 @@ package xu.all.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import xu.all.spring.bean.MyBeanNameAware;
+import xu.all.test.multithread.MyTaskDecorator;
+
+import java.util.concurrent.Executor;
 
 @Configuration
 public class BeanFactory {
+
+    /**
+     * @Description: 创建线程池，为异步使用
+     */
+    @Bean
+    public Executor myThreadPool(){
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(5);
+        executor.setMaxPoolSize(10);
+        executor.setKeepAliveSeconds(60);
+        executor.setQueueCapacity(60);
+        executor.setThreadNamePrefix("myThreadPool: ");
+        executor.setTaskDecorator(new MyTaskDecorator());
+        executor.initialize();
+        return executor;
+    }
 
     @Bean("myBNA")
     public MyBeanNameAware myBeanNameAware(){

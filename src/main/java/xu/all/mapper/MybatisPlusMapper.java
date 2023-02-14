@@ -6,4 +6,6 @@ import xu.all.entity.mybatis.MybatisPlus;
 
 @Mapper
 public interface MybatisPlusMapper extends BaseMapper<MybatisPlus> {
+
+    MybatisPlus getByName(String name);
 }

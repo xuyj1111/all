@@ -8,8 +8,9 @@ import org.joda.time.DateTime;
 import xu.all.utils.DateTimeUtil;
 
 @Slf4j
-@ElasticJobConf(name = "MySimpleJob", cron = "0/10 * * * * ?", shardingTotalCount = 2
-        , shardingItemParameters = "0=shard0,1=shard1", description = "简单任务", eventTraceRdbDataSource = "dataSource")
+//关闭定时任务
+//@ElasticJobConf(name = "MySimpleJob", cron = "0/10 * * * * ?", shardingTotalCount = 2
+//        , shardingItemParameters = "0=shard0,1=shard1", description = "简单任务", eventTraceRdbDataSource = "dataSource")
 public class MySimpleJob implements SimpleJob {
 
     @Override

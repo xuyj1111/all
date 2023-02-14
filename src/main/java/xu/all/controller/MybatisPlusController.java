@@ -19,6 +19,11 @@ public class MybatisPlusController {
         return service.getById(id);
     }
 
+    @GetMapping("/name")
+    public MybatisPlus getByName(@RequestParam("name") String name) {
+        return service.getByName(name);
+    }
+
     @DeleteMapping("/{id}")
     public Boolean removeById(@PathVariable("id") Long id) {
         return service.removeById(id);

@@ -14,11 +14,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class AllApplication {
 
     public static void main(String[] args) {
-        // 打印出所有 bean name
         ConfigurableApplicationContext run = SpringApplication.run(AllApplication.class, args);
-        for (String name : run.getBeanDefinitionNames()) {
-            System.out.println(name);
-        }
+        // 打印出所有 bean name
+//        for (String name : run.getBeanDefinitionNames()) {
+//            System.out.println(name);
+//        }
     }
 
 }

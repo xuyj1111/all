@@ -24,20 +24,16 @@ import java.util.Iterator;
 @Configuration
 public class ObjectMapperConfig {
     @Autowired
-    private ObjectFactory<HttpMessageConverters> messageConverters;
+    private HttpMessageConverters messageConverters;
 
-    public ObjectMapperConfig() {
-    }
-
+    // @PostConstruct 是在被 service 调用之前，为 bean 进行初始化使用；而 @PreDestroy 是在销毁 bean 之前使用
     @PostConstruct
     public void registerJacksonModule() {
         //默认加载多个HttpMessageConverter，获得迭代器
-        Iterator var1 = this.messageConverters.getObject().getConverters().iterator();
-        while (var1.hasNext()) {
-            HttpMessageConverter<?> messageConverter = (HttpMessageConverter) var1.next();
+        for (HttpMessageConverter<?> httpMessageConverter : messageConverters.getConverters()) {
             //遍历，找到MappingJackson2HttpMessageConverter
-            if (messageConverter instanceof MappingJackson2HttpMessageConverter) {
-                MappingJackson2HttpMessageConverter converter = (MappingJackson2HttpMessageConverter) messageConverter;
+            if (httpMessageConverter instanceof MappingJackson2HttpMessageConverter) {
+                MappingJackson2HttpMessageConverter converter = (MappingJackson2HttpMessageConverter) httpMessageConverter;
                 ObjectMapper mapper = converter.getObjectMapper();
                 //属性为NULL，不序列化
                 mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
@@ -52,9 +48,8 @@ public class ObjectMapperConfig {
                 //开启支持整型，默认false
                 mapper.enable(DeserializationFeature.USE_BIG_INTEGER_FOR_INTS);
                 //开启防止科学计数法符号写入，默认false
-                mapper.enable(new com.fasterxml.jackson.core.JsonGenerator.Feature[]{com.fasterxml.jackson.core.JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN});
+                mapper.enable(com.fasterxml.jackson.core.JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN);
             }
         }
-
     }
 }

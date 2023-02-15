@@ -115,7 +115,7 @@ public class SpelDemo {
         expression = parser.parseExpression("T(String)");
         System.out.println(expression.getValue(Class.class));
         //其他包下的类
-        expression = parser.parseExpression("T(DemoDTO)");
+        expression = parser.parseExpression("T(ValidDTO)");
         System.out.println(expression.getValue(Class.class) == DemoDTO.class);
         //类静态字段访问
         expression = parser.parseExpression("T(Integer).MAX_VALUE");
@@ -137,7 +137,7 @@ public class SpelDemo {
         expression = parser.parseExpression("new String('hello java')");
         System.out.println(expression.getValue(String.class));
         //其他包下的类
-        expression = parser.parseExpression("new DemoDTO()");
+        expression = parser.parseExpression("new ValidDTO()");
         System.out.println(expression.getValue(DemoDTO.class));
     }
 

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import xu.all.dto.DemoDTO;
+import xu.all.dto.ValidDTO;
 import xu.all.interfaces.GroupInterface;
 import xu.all.spring.bean.MyBeanNameAware;
 
@@ -56,7 +56,7 @@ public class TestController {
      * @Description: 使用@Valid和限制注解
      */
     @PostMapping("/valid")
-    public void testValid(@RequestBody @Valid DemoDTO dto) {
+    public void testValid(@RequestBody @Valid ValidDTO dto) {
         System.out.println("dto: " + dto);
     }
 
@@ -64,7 +64,7 @@ public class TestController {
      * @Description: 使用@Validated
      */
     @PostMapping("/validated")
-    public void testValidated(@RequestBody @Validated({GroupInterface.class}) DemoDTO dto) {
+    public void testValidated(@RequestBody @Validated({GroupInterface.class}) ValidDTO dto) {
         System.out.println("dto: " + dto);
     }
 

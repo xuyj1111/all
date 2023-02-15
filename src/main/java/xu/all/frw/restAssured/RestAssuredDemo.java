@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import xu.all.dto.PeopleDTO;
+import xu.all.dto.DemoDTO;
 
 import java.io.IOException;
 
@@ -80,11 +80,10 @@ public class RestAssuredDemo {
                 .extract().response();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            PeopleDTO peopleDTO = objectMapper.readValue(response.asString(), PeopleDTO.class);
-            assertThat(peopleDTO.getAge(), is(25));
+            DemoDTO demoDTO = objectMapper.readValue(response.asString(), DemoDTO.class);
+            assertThat(demoDTO.getAge(), is(25));
         } catch (IOException e) {
             log.error("系统异常", e);
         }
-
     }
 }

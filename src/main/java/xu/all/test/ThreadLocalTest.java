@@ -5,7 +5,7 @@ import com.alibaba.ttl.threadpool.TtlExecutors;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import xu.all.dto.PeopleBuilderDTO;
+import xu.all.dto.DemoDTO;
 import xu.all.test.multithread.MyTaskDecorator;
 
 import java.util.concurrent.Executor;
@@ -109,13 +109,15 @@ public class ThreadLocalTest {
     @SneakyThrows
     @Test
     public void test03InheritableThreadLocal() {
-        PeopleBuilderDTO p = PeopleBuilderDTO.builder().name("张三").age(20).build();
-        it.set(p);
+        DemoDTO demoDTO = new DemoDTO();
+        demoDTO.setName("张三");
+        demoDTO.setAge(20);
+        it.set(demoDTO);
         printForInheritableThreadLocal();
 
         new Thread(() -> {
             printForInheritableThreadLocal();
-            PeopleBuilderDTO pp = (PeopleBuilderDTO) it.get();
+            DemoDTO pp = (DemoDTO) it.get();
             pp.setName("李四");
             it.set(pp);
             printForInheritableThreadLocal();

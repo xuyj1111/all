@@ -39,7 +39,7 @@ public class OptionDemo {
 
     /**
      * @Description: 包装可变对象的optional的测试
-     * optional实例是不可变的
+     * optional对象是不可变的集合
      */
     @Test
     public void changeOptional() {
@@ -73,13 +73,5 @@ public class OptionDemo {
         } catch (Exception e) {
             log.error("系统异常", e);
         }
-    }
-
-    /**
-     * @Description:
-     */
-    @Test
-    public void flatMapOptional() {
-
     }
 }

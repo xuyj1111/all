@@ -18,7 +18,7 @@ public class CompletableFutureDemo {
         CompletableFuture<Integer> supplyAsync = CompletableFuture.supplyAsync(() -> {
             System.out.println("start SupplyAsync, 线程名：" + Thread.currentThread().getName());
             try {
-                Thread.sleep(2000l);
+                Thread.sleep(2000L);
             } catch (InterruptedException e) {
                 log.error("系统异常", e);
             }
@@ -47,7 +47,7 @@ public class CompletableFutureDemo {
         CompletableFuture<Integer> supplyAsync = CompletableFuture.supplyAsync(() -> {
             System.out.println("start SupplyAsync, 线程名：" + Thread.currentThread().getName());
             try {
-                Thread.sleep(2000l);
+                Thread.sleep(2000L);
             } catch (InterruptedException e) {
                 log.error("系统异常", e);
             }
@@ -56,7 +56,7 @@ public class CompletableFutureDemo {
         CompletableFuture<String> thenApply = supplyAsync.thenApply((result) -> {
             System.out.println("start ThenApply, 线程名：" + Thread.currentThread().getName());
             try {
-                Thread.sleep(2000l);
+                Thread.sleep(2000L);
             } catch (InterruptedException e) {
                 log.error("系统异常", e);
             }
@@ -85,7 +85,7 @@ public class CompletableFutureDemo {
         CompletableFuture<Integer> supplyAsync = CompletableFuture.supplyAsync(() -> {
             System.out.println("start SupplyAsync, 线程名：" + Thread.currentThread().getName());
             try {
-                Thread.sleep(2000l);
+                Thread.sleep(2000L);
             } catch (InterruptedException e) {
                 log.error("系统异常", e);
             }
@@ -94,7 +94,7 @@ public class CompletableFutureDemo {
         CompletableFuture completableFuture = supplyAsync.thenApply((result) -> {
             System.out.println("start ThenApply, 线程名：" + Thread.currentThread().getName());
             try {
-                Thread.sleep(2000l);
+                Thread.sleep(2000L);
             } catch (InterruptedException e) {
                 log.error("系统异常", e);
             }
@@ -102,14 +102,14 @@ public class CompletableFutureDemo {
         }).thenAccept((result) -> {
             System.out.println("start ThenAccept, 线程名：" + Thread.currentThread().getName());
             try {
-                Thread.sleep(2000l);
+                Thread.sleep(2000L);
             } catch (InterruptedException e) {
                 log.error("系统异常", e);
             }
         }).thenRun(() -> {
             System.out.println("start thenRun, 线程名：" + Thread.currentThread().getName());
             try {
-                Thread.sleep(2000l);
+                Thread.sleep(2000L);
             } catch (InterruptedException e) {
                 log.error("系统异常", e);
             }

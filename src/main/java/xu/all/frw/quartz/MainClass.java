@@ -11,7 +11,7 @@ import java.util.Date;
  * @Author: xuyujun
  * @Date: 2021/9/15
  */
-public class MyScheduler {
+public class MainClass {
     public static void main(String[] args) throws SchedulerException, InterruptedException {
         // 1、创建调度器Scheduler
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();

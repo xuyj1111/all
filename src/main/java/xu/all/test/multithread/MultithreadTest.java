@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Date: 2021/11/11
  */
 @Slf4j
-public class MultithreadDemo {
+public class MultithreadTest {
 
     @Test
     public void testMyThread() {

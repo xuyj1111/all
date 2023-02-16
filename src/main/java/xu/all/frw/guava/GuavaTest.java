@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class GuavaDemo {
+public class GuavaTest {
 
     /**
      * @Description: Joiner.on(String separator)
@@ -21,7 +21,7 @@ public class GuavaDemo {
      * .withKeyValueSeparator(String keyValueSeparator)：设置KV的连接符，返回MapJoiner，即之后再调用join则可传入Map类型对象
      */
     @Test
-    public void JoinerDemo() {
+    public void joinerTest() {
         List<String> list1 = Arrays.asList("aa", "bb", "cc");
         System.out.println(Joiner.on("-").join(list1));
 
@@ -31,7 +31,7 @@ public class GuavaDemo {
 
         System.out.println(Joiner.on("-").skipNulls().appendTo(new StringBuilder("abcdef:"), list2));
 
-        Map map = ImmutableMap.of("k1", "v1", "k2", "v2");
+        Map<String, String> map = ImmutableMap.of("k1", "v1", "k2", "v2");
         System.out.println(Joiner.on("-").withKeyValueSeparator("=").join(map));
     }
 
@@ -46,7 +46,7 @@ public class GuavaDemo {
      * .withKeyValueSeparator(String separator)：规定KV的连接符，返回MapSplitter，之后再调用split则会返回map对象
      */
     @Test
-    public void SplitterDemo() {
+    public void splitterTest() {
         String s1 = " ,b,c,,";
         System.out.println(Splitter.on(",").split(s1));
         System.out.println(Splitter.on(",").trimResults().split(s1));
@@ -71,7 +71,7 @@ public class GuavaDemo {
      * .commonSuffix(CharSequence a, CharSequence b)：返回两个字符串相同的结尾字符串，若无返回空字符串
      */
     @Test
-    public void StringsDemo() {
+    public void stringsTest() {
         String s1 = null;
         System.out.println("1" + Strings.nullToEmpty(s1) + "2");
         String s2 = "";

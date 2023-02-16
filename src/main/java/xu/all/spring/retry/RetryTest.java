@@ -12,9 +12,9 @@ import org.springframework.retry.support.RetryTemplate;
  * @Author: xuyujun
  * @Date: 2021/9/23
  */
-public class RetryDemo {
+public class RetryTest {
 
-    private RetryTemplate retryTemplate = new RetryTemplate();
+    private final RetryTemplate retryTemplate = new RetryTemplate();
 
     private int num = 0;
 
@@ -22,7 +22,7 @@ public class RetryDemo {
      * @Description: 简单重试策略和指数退避策略
      */
     @Test
-    public void SimpleRetryAndBackOff() throws Exception {
+    public void simpleRetryAndBackOff() throws Exception {
         //简单重试策略
         SimpleRetryPolicy policy = new SimpleRetryPolicy();
         //重试5次

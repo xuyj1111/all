@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  * @Author: xuyujun
  * @Date: 2021/7/29
  */
-public class StringUtilsDemo {
+public class StringUtilsTest {
 
     /**
      * @Description: 参考API：https://www.javadoc.io/doc/org.apache.commons/commons-lang3/latest/index.html

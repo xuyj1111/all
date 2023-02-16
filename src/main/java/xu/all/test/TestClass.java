@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DemoClass {
+public class TestClass {
 
     /**
      * @Description: byte数组和string相互转换
@@ -40,7 +40,7 @@ public class DemoClass {
      * @Description: Pattern的使用
      */
     @Test
-    public void patternDemo() {
+    public void testPattern() {
         Pattern p = Pattern.compile("runoo+b");
         Matcher matcher = p.matcher("runoooooob");
         System.out.println(matcher.matches());

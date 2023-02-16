@@ -13,13 +13,11 @@ import java.lang.reflect.Method;
 * @Author: xuyujun
 * @Date: 2021/12/6 
 */ 
-public class SpelDemo {
+public class SpelTest {
 
     private static final ExpressionParser parser = new SpelExpressionParser();
 
     private Expression expression;
-
-    private DemoDTO dto;
 
     /**
      * @Description: 字面量表达式
@@ -116,7 +114,7 @@ public class SpelDemo {
         System.out.println(expression.getValue(Class.class));
         //其他包下的类
         expression = parser.parseExpression("T(ValidDTO)");
-        System.out.println(expression.getValue(Class.class) == DemoDTO.class);
+        System.out.println(expression.getValue(Class.class) == TestDTO.class);
         //类静态字段访问
         expression = parser.parseExpression("T(Integer).MAX_VALUE");
         System.out.println(expression.getValue(int.class) == Integer.MAX_VALUE);
@@ -138,7 +136,7 @@ public class SpelDemo {
         System.out.println(expression.getValue(String.class));
         //其他包下的类
         expression = parser.parseExpression("new ValidDTO()");
-        System.out.println(expression.getValue(DemoDTO.class));
+        System.out.println(expression.getValue(TestDTO.class));
     }
 
     /**

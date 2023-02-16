@@ -2,7 +2,7 @@ package xu.all.frw.hamcrest;
 
 import com.google.common.collect.Maps;
 import org.junit.jupiter.api.Test;
-import xu.all.dto.DemoDTO;
+import xu.all.dto.TestDTO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.*;
  * @Author: xuyujun
  * @Date: 2021/7/30
  */
-public class HamcrestDemo {
+public class HamcrestTest {
 
     /**
      * @Description: Core
@@ -82,7 +82,7 @@ public class HamcrestDemo {
     @Test
     public void hamcrestBeans() {
         //是否有指定属性
-        assertThat(new DemoDTO(), hasProperty("name"));
+        assertThat(new TestDTO(), hasProperty("name"));
     }
 
     /**

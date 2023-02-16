@@ -1,4 +1,4 @@
-package xu.all.spring.batch.messageJob;
+package xu.all.spring.batch;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

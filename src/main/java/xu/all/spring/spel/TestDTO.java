@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DemoDTO {
+public class TestDTO {
 
     String[] strArr;
 }

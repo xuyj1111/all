@@ -3,7 +3,7 @@ package xu.all.frw.awaitility;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import xu.all.dto.DemoDTO;
+import xu.all.dto.TestDTO;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.awaitility.Awaitility.await;
@@ -11,12 +11,12 @@ import static org.awaitility.Awaitility.fieldIn;
 import static org.hamcrest.Matchers.greaterThan;
 
 @Slf4j
-public class AwaitilityDemo {
+public class AwaitilityTest {
 
-    private static DemoDTO demoDTO = new DemoDTO();
+    private static TestDTO testDTO = new TestDTO();
 
     static {
-        demoDTO.setAge(20);
+        testDTO.setAge(20);
     }
 
     /**
@@ -39,13 +39,13 @@ public class AwaitilityDemo {
                 } catch (InterruptedException e) {
                     log.error("系统异常", e);
                 }
-                demoDTO.setAge(demoDTO.getAge() + 1);
+                testDTO.setAge(testDTO.getAge() + 1);
             }
         }).start();
 
-        await().pollInterval(1, SECONDS).atMost(30, SECONDS).until(() -> demoDTO.getAge() > 22);
+        await().pollInterval(1, SECONDS).atMost(30, SECONDS).until(() -> testDTO.getAge() > 22);
         //以下使用matcher校验参数
-//        await().pollInterval(1, SECONDS).atMost(30, SECONDS).until(() -> demoDTO.getAge(), greaterThan(22));
+//        await().pollInterval(1, SECONDS).atMost(30, SECONDS).until(() -> testDTO.getAge(), greaterThan(22));
         System.out.println("over");
     }
 
@@ -67,12 +67,12 @@ public class AwaitilityDemo {
                 } catch (InterruptedException e) {
                     log.error("系统异常", e);
                 }
-                demoDTO.setAge(demoDTO.getAge() + 1);
+                testDTO.setAge(testDTO.getAge() + 1);
             }
         }).start();
 
         await().pollInterval(1, SECONDS).atMost(30, SECONDS).until(
-                fieldIn(demoDTO).ofType(Integer.class).andWithName("age").andAnnotatedWith(JsonProperty.class), greaterThan(22));
+                fieldIn(testDTO).ofType(Integer.class).andWithName("age").andAnnotatedWith(JsonProperty.class), greaterThan(22));
         System.out.println("over");
     }
 }

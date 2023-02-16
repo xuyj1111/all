@@ -1,4 +1,4 @@
-package xu.all.spring.batch.messageJob;
+package xu.all.spring.batch;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.MappingJsonFactory;
@@ -21,16 +21,14 @@ public class MessageLineMapper implements LineMapper<Message> {
     private static final String DATE_CREATED = "date_created";
     private static final String LAST_UPDATED = "last_updated";
 
-    private DateTimeFormatter pattern = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+    private final DateTimeFormatter pattern = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
 
-    private MappingJsonFactory factory = new MappingJsonFactory();
+    private final MappingJsonFactory factory = new MappingJsonFactory();
 
     @Override
     public Message mapLine(String line, int lineNumber) throws Exception {
-
-
         JsonParser parser = factory.createParser(line);
-        Map<String, String> map = (Map) parser.readValueAs(Map.class);
+        Map<String, String> map = parser.readValueAs(Map.class);
         Message message = new Message();
         message.setId(Long.parseLong(map.get(ID)));
         message.setContent(map.get(CONTENT));

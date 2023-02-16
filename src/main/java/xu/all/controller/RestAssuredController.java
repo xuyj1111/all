@@ -1,7 +1,7 @@
 package xu.all.controller;
 
 import org.springframework.web.bind.annotation.*;
-import xu.all.dto.DemoDTO;
+import xu.all.dto.TestDTO;
 
 /**
  * @Description: 为RestAssuredDemo类测试使用
@@ -24,8 +24,8 @@ public class RestAssuredController {
     }
 
     @PostMapping(value = "/body", produces = "application/json")
-    public DemoDTO bodyRest(@RequestBody DemoDTO demoDTO) {
-        demoDTO.setAge(25);
-        return demoDTO;
+    public TestDTO bodyRest(@RequestBody TestDTO testDTO) {
+        testDTO.setAge(25);
+        return testDTO;
     }
 }

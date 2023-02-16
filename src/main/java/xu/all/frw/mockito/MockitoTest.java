@@ -11,7 +11,7 @@ import java.util.List;
  * @Author: xuyujun
  * @Date: 2021/10/18
  */
-public class MockitoDemo {
+public class MockitoTest {
 
     @Test
     public void testMock() {

@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class OpenCsvDemo {
+public class OpenCsvTest {
 
     private static final byte[] UTF8BOOM = new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
     private static final String PATH = "src/main/java/xu/all/frw/openCsv/";

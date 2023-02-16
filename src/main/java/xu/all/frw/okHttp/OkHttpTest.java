@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
  * @Author: xuyujun
  * @Date: 2022/1/14
  */
-public class OkHttpDemo {
+public class OkHttpTest {
 
     /**
      * @Description:

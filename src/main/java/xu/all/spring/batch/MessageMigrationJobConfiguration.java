@@ -1,4 +1,4 @@
-package xu.all.spring.batch.messageJob;
+package xu.all.spring.batch;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import org.springframework.batch.core.Job;

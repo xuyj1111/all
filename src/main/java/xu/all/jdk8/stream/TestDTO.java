@@ -3,7 +3,7 @@ package xu.all.jdk8.stream;
 import lombok.Data;
 
 @Data
-public class DemoDTO {
+public class TestDTO {
     private String aStr;
     private Integer aInt;
     private Float aFloat;
@@ -12,7 +12,7 @@ public class DemoDTO {
 
 
     @Data
-    public class SonDTO {
+    public static class SonDTO {
         private String aStr;
     }
 }

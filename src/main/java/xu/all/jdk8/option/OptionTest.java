@@ -2,7 +2,7 @@ package xu.all.jdk8.option;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import xu.all.jdk8.stream.DemoDTO;
+import xu.all.jdk8.stream.TestDTO;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  * @Date: 2022/1/10
  */
 @Slf4j
-public class OptionDemo {
+public class OptionTest {
 
     /**
      * @Description: 创建optional实例
@@ -63,7 +63,7 @@ public class OptionDemo {
         System.out.println(Optional.empty().orElse("This is empty"));
 
         System.out.println("--------------orElseGet(Supplier<? extends T> other)--------------");
-        Supplier<DemoDTO> s1 = DemoDTO::new;
+        Supplier<TestDTO> s1 = TestDTO::new;
         System.out.println(Optional.empty().orElseGet(s1));
 
         System.out.println("--------------orElseThrow(Supplier<? extends X> exceptionSupplier)--------------");

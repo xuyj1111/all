@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import xu.all.dto.DemoDTO;
+import xu.all.dto.TestDTO;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.is;
  * @Date: 2021/7/30
  */
 @Slf4j
-public class RestAssuredDemo {
+public class RestAssuredTest {
 
     /**
      * @Description: 查询参数
@@ -80,8 +80,8 @@ public class RestAssuredDemo {
                 .extract().response();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            DemoDTO demoDTO = objectMapper.readValue(response.asString(), DemoDTO.class);
-            assertThat(demoDTO.getAge(), is(25));
+            TestDTO testDTO = objectMapper.readValue(response.asString(), TestDTO.class);
+            assertThat(testDTO.getAge(), is(25));
         } catch (IOException e) {
             log.error("系统异常", e);
         }

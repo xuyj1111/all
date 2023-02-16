@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DemoDTO extends BaseDTO {
+public class TestDTO extends BaseDTO {
     private static final long serialVersionUID = 7099487348591915155L;
     private String name;
     @JsonProperty("Age")

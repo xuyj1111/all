@@ -13,7 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Slf4j
-public class Zip4jDemo {
+public class Zip4jTest {
 
     private static final String PATH = "src/main/java/xu/all/frw/zip4j/";
     private static final String DIR_PATH = PATH + "testDir/";

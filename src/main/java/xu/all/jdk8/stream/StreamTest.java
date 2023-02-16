@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @Author: xuyujun
  * @Date: 2022/1/5
  */
-public class StreamDemo {
+public class StreamTest {
 
     /**
      * @Description: peek操作
@@ -37,7 +37,7 @@ public class StreamDemo {
     @Test
     public void streamForeach() {
         List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        integers.stream().forEach(System.out::print);
+        integers.forEach(System.out::print);
     }
 
     /**
@@ -111,7 +111,7 @@ public class StreamDemo {
      * 只有在IntStream流中才可以使用统计的一些函数
      */
     @Test
-    public void intStreamDemo() {
+    public void intStreamTest() {
         List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         IntSummaryStatistics statistics = integers.stream().mapToInt(x -> x).summaryStatistics();
         System.out.println("最小值：" + statistics.getMin());
@@ -129,7 +129,7 @@ public class StreamDemo {
      * 此后i1的值为上一次的返回值，i2则从下标2开始遍历list
      */
     @Test
-    public void reduceDemo01() {
+    public void reduceTest01() {
         List<Integer> list = Arrays.asList(11, 22, 33, 44);
         Optional<Integer> reduce = list.stream().reduce((i1, i2) -> {
             System.out.println("i1: " + i1);
@@ -154,7 +154,7 @@ public class StreamDemo {
      * 该方法需要有两个入参，对应i1和i2，逻辑写在方法内
      */
     @Test
-    public void reduceDemo02() {
+    public void reduceTest02() {
         List<Integer> list = Arrays.asList(11, 22, 33, 44);
         Integer reduce = list.stream().reduce(null, (i1, i2) -> {
             System.out.println("i1: " + i1);
@@ -177,7 +177,7 @@ public class StreamDemo {
      * 参数3只有在parallelStream会执行，当前stream不会执行
      */
     @Test
-    public void reduceDemo03() {
+    public void reduceTest03() {
         List<Integer> list = Arrays.asList(11, 22, 33, 44);
         List<Integer> newList = Lists.newArrayList();
         List<Integer> reduce = list.stream().reduce(newList, (i1, i2) -> {

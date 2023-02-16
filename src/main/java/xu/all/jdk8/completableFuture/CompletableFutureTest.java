@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 
 @Slf4j
-public class CompletableFutureDemo {
+public class CompletableFutureTest {
 
     /**
      * @Description: supplyAsync创建有返回值异步任务，runAsync创建无返回值异步任务
@@ -29,9 +29,7 @@ public class CompletableFutureDemo {
         try {
             //主线程会阻塞，等待子线程结束得到返回值
             System.out.println("return: " + supplyAsync.get());
-        } catch (InterruptedException e) {
-            log.error("系统异常", e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             log.error("系统异常", e);
         }
         System.out.println("main thread end, time: " + System.currentTimeMillis());
@@ -67,9 +65,7 @@ public class CompletableFutureDemo {
         try {
             System.out.println("supplyAsync return: " + supplyAsync.get());
             System.out.println("thenApply return: " + thenApply.get());
-        } catch (InterruptedException e) {
-            log.error("系统异常", e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             log.error("系统异常", e);
         }
         System.out.println("main thread end, time: " + System.currentTimeMillis());
@@ -91,7 +87,7 @@ public class CompletableFutureDemo {
             }
             return 1111;
         }, pool);
-        CompletableFuture completableFuture = supplyAsync.thenApply((result) -> {
+        CompletableFuture<Void> completableFuture = supplyAsync.thenApply((result) -> {
             System.out.println("start ThenApply, 线程名：" + Thread.currentThread().getName());
             try {
                 Thread.sleep(2000L);
@@ -120,9 +116,7 @@ public class CompletableFutureDemo {
         try {
             System.out.println("supplyAsync return: " + supplyAsync.get());
             completableFuture.get();
-        } catch (InterruptedException e) {
-            log.error("系统异常", e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             log.error("系统异常", e);
         }
         System.out.println("main thread end, time: " + System.currentTimeMillis());

@@ -5,7 +5,7 @@ import org.springframework.batch.core.configuration.support.ApplicationContextFa
 import org.springframework.batch.core.configuration.support.GenericApplicationContextFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import xu.all.spring.batch.messageJob.MessageMigrationJobConfiguration;
+import xu.all.spring.batch.MessageMigrationJobConfiguration;
 
 /**
  * @Description: spring batch job factory

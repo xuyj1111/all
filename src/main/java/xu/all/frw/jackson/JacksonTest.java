@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  * @Author: xuyujun
  * @Date: 2022/1/18
  */
-public class JacksonDemo {
+public class JacksonTest {
 
     /**
      * @Description:
@@ -21,7 +21,7 @@ public class JacksonDemo {
         JsonDTO jsonDTO = new JsonDTO();
         jsonDTO.setName("张三");
         jsonDTO.setAge(20);
-        jsonDTO.setDecimal(new BigDecimal(0.00000001));
+        jsonDTO.setDecimal(new BigDecimal("0.00000001"));
         jsonDTO.setAFloat(0.001f);
         System.out.println(JsonMapper.writeValueAsString(jsonDTO));
     }

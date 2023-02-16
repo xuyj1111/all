@@ -21,7 +21,7 @@ import java.util.List;
  * @Author: xuyujun
  * @Date: 2021/6/1
  */
-public class OrikaDemo {
+public class OrikaTest {
 
     /**
      * @Description: OrikaBase

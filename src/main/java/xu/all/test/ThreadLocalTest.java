@@ -5,7 +5,7 @@ import com.alibaba.ttl.threadpool.TtlExecutors;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import xu.all.dto.DemoDTO;
+import xu.all.dto.TestDTO;
 import xu.all.test.multithread.MyTaskDecorator;
 
 import java.util.concurrent.Executor;
@@ -20,7 +20,6 @@ public class ThreadLocalTest {
     private ThreadLocal<Object> t = new ThreadLocal<>();
     private ThreadLocal<Object> it = new InheritableThreadLocal<>();
     private ThreadLocal tt = new TransmittableThreadLocal();
-    private ThreadLocal tt2 = new TransmittableThreadLocal();
 
 
     private void printForThreadLocal() {
@@ -109,15 +108,15 @@ public class ThreadLocalTest {
     @SneakyThrows
     @Test
     public void test03InheritableThreadLocal() {
-        DemoDTO demoDTO = new DemoDTO();
-        demoDTO.setName("张三");
-        demoDTO.setAge(20);
-        it.set(demoDTO);
+        TestDTO testDTO = new TestDTO();
+        testDTO.setName("张三");
+        testDTO.setAge(20);
+        it.set(testDTO);
         printForInheritableThreadLocal();
 
         new Thread(() -> {
             printForInheritableThreadLocal();
-            DemoDTO pp = (DemoDTO) it.get();
+            TestDTO pp = (TestDTO) it.get();
             pp.setName("李四");
             it.set(pp);
             printForInheritableThreadLocal();

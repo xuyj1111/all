@@ -297,9 +297,9 @@
 - `void test01InheritableThreadLocal` InheritableThreadLocal 实现子父线程可传递
 - `void test02InheritableThreadLocal`引用对象不可证明子父线程指向同一对象，因为对象被重新赋值后变的是整个引用
 - `void test03InheritableThreadLocal` InheritableThreadLocal 中子父线程中指向同一对象
-- `void test04InheritableThreadLocal`线程池在 init 新的线程时，会将主线程的 ThreadLocal 传递给子线程
-- `void test05InheritableThreadLocal`但如果在 init 子线程时，主线程 ThreadLocal 中值为 null，子线程也是 null；之后主线程被赋了新值，已经被 init 的子线程再次被调用时，主线程不会赋值给子线程（当前线程池大小为1，则可实现二次调用创建的子线程）
-- `void test01TransmittableThreadLocal`解决了 InheritableThreadLocal 父子线程不传递的问题
+- `void test04InheritableThreadLocal`线程池在 init 新的线程时，会将主线程的 InheritableThreadLocal 传递给子线程
+- `void test05InheritableThreadLocal`但如果在 init 子线程时，主线程 InheritableThreadLocal 中值为 null，子线程也是 null；之后主线程被赋了新值，已经被 init 的子线程再次被调用时，主线程不会赋值给子线程（当前线程池大小为1，则可实现二次调用创建的子线程）
+- `void test01TransmittableThreadLocal`解决了 InheritableThreadLocal 在线程池时父子线程传递的问题
 
 ***
 

@@ -23,15 +23,15 @@ public class ThreadLocalTest {
 
 
     private void printForThreadLocal() {
-        System.out.println(Thread.currentThread().getName() + ":" + t.get());
+        System.out.println(Thread.currentThread().getName() + ":[" + t.get() + "]");
     }
 
     private void printForInheritableThreadLocal() {
-        System.out.println(Thread.currentThread().getName() + ":" + it.get());
+        System.out.println(Thread.currentThread().getName() + ":[" + it.get() + "]");
     }
 
     private void printForTransmittableThreadLocal() {
-        System.out.println(Thread.currentThread().getName() + ":" + tt.get());
+        System.out.println(Thread.currentThread().getName() + ":[" + tt.get() + "]");
     }
 
     /**
@@ -127,7 +127,7 @@ public class ThreadLocalTest {
     }
 
     /**
-     * @Description: 线程池在init新的线程时，会将主线程的ThreadLocal传递给子线程
+     * @Description: 线程池在init新的线程时，会将主线程的InheritableThreadLocal传递给子线程
      * @Author: xuyujun
      * @Date: 2022/2/23
      */
@@ -144,7 +144,7 @@ public class ThreadLocalTest {
     }
 
     /**
-     * @Description: 但如果在init子线程时，主线程ThreadLocal中值为null，子线程也是null；
+     * @Description: 但如果在init子线程时，主线程InheritableThreadLocal中值为null，子线程也是null；
      *               之后主线程被赋了新值，已经被init的子线程再次被调用时，主线程不会赋值给子线程（当前线程池大小为1，则可实现二次调用创建的子线程）
      * @Author: xuyujun
      * @Date: 2022/2/23
@@ -164,7 +164,7 @@ public class ThreadLocalTest {
 
 
     /**
-     * @Description: 解决了InheritableThreadLocal父子线程不传递的问题
+     * @Description: 解决了InheritableThreadLocal在线程池时父子线程传递的问题
      */
     @Test
     public void test01TransmittableThreadLocal() {

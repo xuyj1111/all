@@ -23,7 +23,7 @@ import java.io.File;
  */
 public class MessageMigrationJobConfiguration {
 
-    private static final Integer CHUNK_SIZE = 5;
+    private static final Integer CHUNK_SIZE = 4;
     private static final String MESSAGE_FILE = "src/main/resources/file/message.txt";
     private static final Integer SKIP_LIMIT = 1;
 
@@ -52,11 +52,13 @@ public class MessageMigrationJobConfiguration {
      */
     @Bean
     public Step messageMigrationStep(@Qualifier("jsonMessageReader") FlatFileItemReader<Message> jsonMessageReader,
+                                     @Qualifier("messageProcessor") MessageProcessor messageProcessor,
                                      @Qualifier("messageItemWriter") JpaItemWriter<Message> messageItemWriter) {
         return stepBuilderFactory.get("messageMigrationStep")
                 .<Message, Message>chunk(CHUNK_SIZE)
                 .reader(jsonMessageReader).faultTolerant().skip(JsonParseException.class).skipLimit(SKIP_LIMIT)
                 .listener(new MessageItemReadListener())
+                .processor(messageProcessor)
                 .writer(messageItemWriter).faultTolerant().skip(Exception.class).skipLimit(SKIP_LIMIT)
                 .listener(new MessageWriteListener())
                 .build();
@@ -74,6 +76,11 @@ public class MessageMigrationJobConfiguration {
         reader.setResource(new FileSystemResource(new File(MESSAGE_FILE)));
         reader.setLineMapper(new MessageLineMapper());
         return reader;
+    }
+
+    @Bean
+    public MessageProcessor messageProcessor() {
+        return new MessageProcessor();
     }
 
     /**

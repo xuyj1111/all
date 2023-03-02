@@ -295,7 +295,7 @@
 - `Executor createThreadPool`创建线程池
 - `void test01ThreadLocal`最简单的ThreadLocal用法，证明了线程之间不共享threadLocal中的值
 - `void test01InheritableThreadLocal` InheritableThreadLocal 实现子父线程可传递
-- `void test02InheritableThreadLocal`引用对象不可证明子父线程指向同一对象，因为对象被重新赋值后变的是整个引用
+- `void test02InheritableThreadLocal` 基本数据类型不可证明父子线程指向同一对象
 - `void test03InheritableThreadLocal` InheritableThreadLocal 中子父线程中指向同一对象
 - `void test04InheritableThreadLocal`线程池在 init 新的线程时，会将主线程的 InheritableThreadLocal 传递给子线程
 - `void test05InheritableThreadLocal`但如果在 init 子线程时，主线程 InheritableThreadLocal 中值为 null，子线程也是 null；之后主线程被赋了新值，已经被 init 的子线程再次被调用时，主线程不会赋值给子线程（当前线程池大小为1，则可实现二次调用创建的子线程）

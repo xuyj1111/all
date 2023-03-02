@@ -80,7 +80,7 @@ public class ThreadLocalTest {
     }
 
     /**
-     * @Description: 引用对象不可证明子父线程指向同一对象，因为对象被重新赋值后变的是整个引用
+     * @Description: 基本数据类型不可证明子父线程指向同一对象
      * @Author: xuyujun
      * @Date: 2022/2/23
      */

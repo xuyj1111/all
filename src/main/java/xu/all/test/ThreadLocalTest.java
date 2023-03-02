@@ -80,7 +80,7 @@ public class ThreadLocalTest {
     }
 
     /**
-     * @Description: 基本数据类型不可证明子父线程指向同一对象
+     * @Description: 基本数据类型不可证明父子线程指向同一对象
      * @Author: xuyujun
      * @Date: 2022/2/23
      */

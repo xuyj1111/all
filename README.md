@@ -285,7 +285,7 @@
   - `Executor createThreadPool`创建线程池
 - `MyCallable`自定义 Callable
 - `MyRunnable`自定义 Runnable
-- `MyTaskDecorator`？？？？？？？？？？？？？？？？？？？？？？？？
+- `MyTaskDecorator` Task 的装饰类，对 Task 对象进行一些修改、操作
 ### `TestClass`
 - `void byteStringConvert`byte数组和string相互转换
 - `void verifyURL`校验网址

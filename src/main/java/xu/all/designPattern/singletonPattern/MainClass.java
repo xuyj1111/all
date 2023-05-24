@@ -16,5 +16,11 @@ public class MainClass {
 
         LazySingletonDoubleCheck lazySingletonDoubleCheck = LazySingletonDoubleCheck.getInstance();
         lazySingletonDoubleCheck.hello();
+
+        LazySingletonInner lazySingletonInner = LazySingletonInner.getInstance();
+        lazySingletonInner.hello();
+
+        LazySingletonEnum lazySingletonEnum = LazySingletonEnum.INSTANCE;
+        lazySingletonEnum.hello();
     }
 }

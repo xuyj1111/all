@@ -64,12 +64,13 @@ dependencies {
     // 工具
     implementation 'org.projectlombok:lombok'
     implementation 'cn.hutool:hutool-all:5.8.1'
-    implementation group: 'joda-time', name: 'joda-time', version: '2.10.1'
+    implementation 'joda-time:joda-time:2.10.1'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
     implementation 'org.yaml:snakeyaml:1.29'
     implementation('xu.tools:tools-io:0.0.1-SNAPSHOT') { changing = true }
     implementation('xu.tools:tools-json:0.0.1-SNAPSHOT') { changing = true }
+    implementation('xu.modules:modules-rate-limit:0.0.1-SNAPSHOT') { changing = true }
     // other
     implementation 'com.alibaba:easyexcel:2.2.10'
     implementation 'com.squareup.okhttp3:okhttp:3.12.12'

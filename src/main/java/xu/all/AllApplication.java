@@ -7,10 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableFeignClients
 @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
+@ComponentScan({"xu.all", "xu.tools", "xu.modules"})
 @EnableElasticJob
 @ServletComponentScan
 public class AllApplication {
